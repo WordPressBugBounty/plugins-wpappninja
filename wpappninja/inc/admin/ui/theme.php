@@ -308,7 +308,7 @@ function wpappninja_frame(elem) {
 				<option data-url="<?php echo $homepage_wpapp;?><?php echo (parse_url($homepage_wpapp, PHP_URL_QUERY) ? '&' : '?'); ?>wpappninja=true&wpappninja_simul4=true&wpappninja_my_theme=<?php echo $actuel;?>" value="1|No theme overlay" <?php if (get_wpappninja_option('wpappninja_main_theme', 'WPMobile.App') == 'No theme' && get_wpappninja_option('speed') == '1' && get_wpappninja_option('appify') == '1'){echo 'selected';} ?>><?php echo $actuel . ' + Native interface';?></option>
 
 
-			<option style="display:none" data-url="https://support.wpmobile.app/article/62-can-i-test-my-android-and-ios-mobile-app?lang=<?php echo wpmobile_getSupportLang();?>" value="0|WPMobile.App (light)" <?php if (get_wpappninja_option('wpappninja_main_theme', 'WPMobile.App') == 'WPMobile.App (light)'){echo 'selected';} ?>><?php _e('Super light', 'wpappninja');?></option>
+			<!--<option style="display:none" data-url="https://support.wpmobile.app/article/62-can-i-test-my-android-and-ios-mobile-app?lang=<?php echo wpmobile_getSupportLang();?>" value="0|WPMobile.App (light)" <?php if (get_wpappninja_option('wpappninja_main_theme', 'WPMobile.App') == 'WPMobile.App (light)'){echo 'selected';} ?>><?php _e('Super light', 'wpappninja');?></option>-->
 
 			<!--</optgroup>-->
 

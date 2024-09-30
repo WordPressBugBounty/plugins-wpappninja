@@ -12,6 +12,9 @@ Android and iOS mobile application for any WordPress wesbite. Easy setup, free t
 
 == Changelog ==
 
+= 11.51 =
+* Fix Cross Site Scripting (XSS). Thanks to Le Ngoc Anh and Patchstack
+
 = 11.50 =
 * Update some links
 

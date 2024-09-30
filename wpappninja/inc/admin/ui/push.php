@@ -606,6 +606,9 @@ if ($menu_current == 'push') {
 								$image			= wpappninja_get_image($featPostID);
 							}
 
+        					$featPostID = (int)$featPostID;
+					        $featPostID = round($featPostID);
+
 							$currentLink = get_permalink($featPostID);
 							if (!$currentLink) {
 								$currentLink = $featPostID;
@@ -614,6 +617,8 @@ if ($menu_current == 'push') {
 							if ($currentLink == "-1") {
 								$currentLink = "";
 							}
+
+
 							
 							echo '<input type="hidden" name="wpappninjapush_updateid" value="'.$pushID.'" />
 							<input type="hidden" name="wpappninjapush_insert_id_post" id="wpappninjapush_insert_id_post" value="'.$featPostID.'" />

@@ -3,7 +3,7 @@
 Plugin Name: WPMobile.App — Android and iOS Mobile Application
 Plugin URI: https://wpmobile.app/
 Description: Android and iOS mobile application for any WordPress website. Easy setup, free test.
-Version: 11.51
+Version: 11.52
 Author: WPMobile.App
 Author URI: https://wpmobile.app/
 Licence: GPLv2
@@ -14,7 +14,7 @@ Domain Path: /languages/
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 // common
-define( 'WPAPPNINJA_VERSION'	 		, '11.51' );
+define( 'WPAPPNINJA_VERSION'	 		, '11.52' );
 define( 'WPAPPNINJA_VERSION_APP'        , '100' );
 
 if (defined('WPAPPNINJA_WHITE_LABEL')) {
@@ -72,6 +72,12 @@ define( 'WPAPPNINJA_ASSETS_IMG_URL'     , WPAPPNINJA_ASSETS_URL . 'images/' );
  *
  * @since 1.0
  */
+add_action( 'init', 'wpmobile_load_textdomain' );
+function wpmobile_load_textdomain() {
+	load_plugin_textdomain( 'wpappninja', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+
 add_action( 'plugins_loaded', '_wpappninja_init' );
 function _wpappninja_init() {
 
@@ -162,8 +168,6 @@ function _wpappninja_init() {
 	}
 	
 	// load translations
-    load_plugin_textdomain( 'wpappninja', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	
     require( WPAPPNINJA_FUNCTIONS_PATH  . 'package.php' );
     require( WPAPPNINJA_FUNCTIONS_PATH  . 'healme.php' );
     require( WPAPPNINJA_FUNCTIONS_PATH 	. 'check.php' );

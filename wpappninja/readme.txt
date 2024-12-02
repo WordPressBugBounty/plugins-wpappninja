@@ -2,7 +2,7 @@
 Contributors: amauric
 Tags: mobile app, android app, ios app
 Requires at least: 3.7.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -11,6 +11,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Android and iOS mobile application for any WordPress wesbite. Easy setup, free test.
 
 == Changelog ==
+
+= 11.52 =
+* Fix how translations are loaded
 
 = 11.51 =
 * Fix Cross Site Scripting (XSS). Thanks to Le Ngoc Anh and Patchstack

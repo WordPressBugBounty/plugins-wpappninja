@@ -12,6 +12,9 @@ Android and iOS mobile application for any WordPress wesbite. Easy setup, free t
 
 == Changelog ==
 
+= 11.53 =
+* Security: fix Unauthenticated Arbitrary Shortcode Execution (thanks Arkadiusz Hydzik and Wordfence)
+
 = 11.52 =
 * Fix how translations are loaded
 

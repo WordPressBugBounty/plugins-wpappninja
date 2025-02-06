@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.56 =
+* Bump versions
+
 = 11.55 =
 * Fix a woocommerce description issue 
 

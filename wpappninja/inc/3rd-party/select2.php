@@ -12,6 +12,35 @@ function wpmobile_fix_select2() {
         return;
     } ?>
 
+        <script>
+            jQuery(function () {
+                if (typeof app !== 'undefined' && typeof app.off === 'function' && typeof app.panel !== 'undefined' && typeof app.panel.open === 'function') {
+                    app.off('touchstart');
+                    jQuery('.navbar .left').on('click', function (e) {
+                        app.panel.open();
+                    });
+                }
+            });
+            jQuery(function() {
+                jQuery('#tab-description').attr('id', 'tab-description-wait');
+                setTimeout(function() {
+                    jQuery('#tab-description-wait').attr('id', 'tab-description');
+                }, 1200);
+                setTimeout(function() {
+                    var panels = document.querySelectorAll('.woocommerce-Tabs-panel');
+                    var blockPanelExists = Array.from(panels).some(function(panel) {
+                        return getComputedStyle(panel).display === 'block';
+                    });
+                    if (!blockPanelExists) {
+                        var descriptionPanel = document.querySelector('.woocommerce-Tabs-panel--description');
+                        if (descriptionPanel) {
+                            descriptionPanel.style.display = 'block';
+                        }
+                    }
+                }, 800);
+            });
+        </script>
+
     <script>
     jQuery(function() {
         jQuery("ul.tabs li[aria-controls] a").each(function(index) {

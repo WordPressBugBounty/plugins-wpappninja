@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WPMobile.App — Android and iOS Mobile Application
+Plugin Name: WPMobile.App
 Plugin URI: https://wpmobile.app/
-Description: Android and iOS mobile application for any WordPress website. Easy setup, free test.
-Version: 11.53
+Description: Android and iOS mobile application. Easy setup, free test.
+Version: 11.55
 Author: Amauri
-Author URI: https://amauri.io/
+Author URI: https://wpmobile.app/
 Licence: GPLv2
 Text Domain: wpappninja
 Domain Path: /languages/

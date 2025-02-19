@@ -476,7 +476,9 @@ function wpmobile_redirect_after_lang_switch() {
         setcookie("WPAPPNINJA_LOCALE", $_GET['WPMOBILE_LOCALE'], time() + 300 * DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
         $_COOKIE['WPAPPNINJA_LOCALE'] = $_GET['WPMOBILE_LOCALE'];
 
-        $homepage_redirect = strtok(base64_decode($_GET['redirect']), "?");
+        //$homepage_redirect = strtok(base64_decode($_GET['redirect']), "?");
+	    $redirect = base64_decode($_GET['redirect']);
+	    $homepage_redirect = filter_var($redirect, FILTER_VALIDATE_URL) ? strtok($redirect, "?") : '/';
         
         if (get_wpappninja_option('speed_trad') == 'manual') {
 
@@ -495,7 +497,7 @@ function wpmobile_redirect_after_lang_switch() {
         $homepage_redirect = wpappninja_cache_friendly($homepage_redirect);
 
 
-        wp_redirect($homepage_redirect);
+	    wp_safe_redirect($homepage_redirect);
         exit();
     }
 }

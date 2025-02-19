@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.57 =
+* Security: fix Open Redirect (thanks to Krzysztof Zając and Wordfence)
+
 = 11.56 =
 * Bump versions
 

@@ -12,6 +12,15 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.59 =
+* Fix rating link
+
+= 11.58 =
+* Add more Peepso notifications (messages and friends)
+* Fix statistics about installations and login/register
+* Fix the new notification form not displaying
+* Add a "rate me" message
+
 = 11.57 =
 * Security: fix Open Redirect (thanks to Krzysztof Zając and Wordfence)
 

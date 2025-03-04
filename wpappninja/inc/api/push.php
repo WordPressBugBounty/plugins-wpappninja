@@ -664,3 +664,57 @@ function wpmobileapp_send_push_peepso( $array ) {
     
     return $array;
 }
+add_action('peepso_action_add_message_recipient_after', function($data) {
+
+	if (get_wpappninja_option('wpmobile_auto_peepso') == '1') {
+		$to_id   = $data['mrec_user_id'];
+		$from_id = get_current_user_id();
+
+		if ( $to_id == $from_id ) {
+			return;
+		}
+
+		$from_user = PeepSoUser::get_instance( $from_id );
+		$to_user   = PeepSoUser::get_instance( $to_id );
+		$post      = get_post( $data['mrec_msg_id'] );
+
+		$title = $from_user->get_firstname();
+
+		$message = $post->post_content;
+		$message = strip_tags( $message );
+		$message = apply_filters( 'peepso_remove_shortcodes', $message );
+
+		if ( $message == PeepSoMessagesPlugin::MESSAGE_INLINE_LEFT_CONVERSATION ) {
+			$message = 'Left the conversation';
+		} elseif ( $message == PeepSoMessagesPlugin::MESSAGE_INLINE_NEW_GROUP ) {
+			$message = 'Created a new group conversation';
+		}
+
+		if ( ! strlen( $message ) ) {
+			$message = 'New message. Click to view';
+		}
+
+		$PeepSoMessages = PeepSoMessages::get_instance();
+		$link           = PeepSo::get_page( 'messages' );//$PeepSoMessages->get_message_url($data);
+
+		$image = " ";
+
+		wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+	}
+});
+add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
+	if (get_wpappninja_option('wpmobile_auto_peepso') == '1') {
+		$from_user = PeepSoUser::get_instance( $from_id );
+		$to_user   = PeepSoUser::get_instance( $to_id );
+
+		$title   = $from_user->get_firstname();
+		$message = __( 'Sent you a friend request', 'peepso-app' );
+		$link    = $to_user->get_profileurl() . 'friends/requests';
+		$image   = " "; // ???
+
+		wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+	}
+
+}, 10, 2);
+
+

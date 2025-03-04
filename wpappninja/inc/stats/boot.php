@@ -44,9 +44,9 @@ function wpappninja_stats_log($action, $nb = 1, $isIOS = false, $lang = '') {
 	}
 
 	// exclude hack
-	if ($value < 0) {
+	/*if ($value < 0) {
 		return;
-	}
+	}*/
 	
 	// exclude pagination on cat/recent
 	if ($action == 'bycat' && isset($request[2]) ||

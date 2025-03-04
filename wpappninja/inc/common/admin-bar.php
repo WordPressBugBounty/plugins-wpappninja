@@ -28,12 +28,11 @@ function _wpappninja_admin_bar( $wp_admin_bar ) {
 		}
 
 		if (current_user_can( wpappninja_get_right("push") )) {
-			$postID = '';
-			if (is_singular()){$postID = get_the_ID();}
+
 			$wp_admin_bar->add_menu(array(
 				'id'     => WPAPPNINJA_PUSH_SLUG,
 				'title'  => '<span class="ab-icon"></span> ' . __( 'Push notification', 'wpappninja' ),
-				'href'   => admin_url('admin.php?page=' . WPAPPNINJA_PUSH_SLUG . '&postID=' . $postID),
+				'href'   => admin_url('admin.php?page=' . WPAPPNINJA_PUSH_SLUG),
 			) );
 		}
 
@@ -152,3 +151,43 @@ function _wpappninja_admin_bar_css() {
 		wp_enqueue_style( 'wpappninja-admin-bar' );
 	}
 }
+
+/** Ask for a review **/
+add_action('admin_notices', function () {
+	$user_id = get_current_user_id();
+	$meta_key = 'wpmobileapp_rateme_dismissed003';
+
+	if (get_user_meta($user_id, $meta_key, true)) {
+		return;
+	}
+
+	global $wpdb;
+	$sub = $wpdb->get_results("SELECT COUNT(id) as sub FROM {$wpdb->prefix}wpappninja_ids");
+	if (@round($sub[0]->sub) > 1000) {
+		?>
+		<div class="notice notice-success is-dismissible" id="wpmobileapp-rateme-notice">
+
+			<?php
+			if (get_user_locale() === 'fr_FR') { ?>
+				<p><big>🎉 Félicitations, votre application a dépassé les <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> téléchargements</b> ! 🚀</big><br/>Ce serait génial si vous pouviez <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">laisser un avis</a> ! ⭐️⭐️⭐️⭐️⭐️ 4.9</p>
+			<?php } else { ?>
+				<p><big>🎉 Congratulations, your application has exceeded <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> downloads</b>! 🚀</big><br/>It will be awesome if you can <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">leave a review</a>! ⭐️⭐️⭐️⭐️⭐️ 4.9</p>
+			<?php } ?>
+		</div>
+		<script>
+            jQuery(document).on('click', '#wpmobileapp-rateme-notice .notice-dismiss', function () {
+                jQuery.post(ajaxurl, {
+                    action: 'wpmobileapp_rateme_dismiss_notice',
+                    security: '<?php echo wp_create_nonce("wpmobileapp_rateme_dismiss_notice"); ?>'
+                });
+            });
+		</script>
+		<?php
+	}
+});
+
+add_action('wp_ajax_wpmobileapp_rateme_dismiss_notice', function () {
+	check_ajax_referer('wpmobileapp_rateme_dismiss_notice', 'security');
+	update_user_meta(get_current_user_id(), 'wpmobileapp_rateme_dismissed003', 1);
+	wp_die();
+});

@@ -180,6 +180,11 @@ function wpmobileapp_reset_password() {
 
 }
 
+add_action('user_register', function ($user_id) {
+	if (is_wpappninja()) {
+		wpappninja_stats_log("signup", 1);
+    }
+}, 10, 1);
 
 
 add_action('init', 'wpmobileapp_create_account');
@@ -215,7 +220,7 @@ function wpmobileapp_create_account() {
         $wp__user = get_user_by('email', $email);
 		do_action('wp_login', $user, $wp__user);
         
-		wpappninja_stats_log("signup", 1);
+
 		$wpappninja_popup .= '<script>jQuery(function(){app.dialog.alert(\''.__('Account successfully created.', 'wpappninja').'\',\''.__('You are now connected', 'wpappninja').'\');});</script>';
 	}
 

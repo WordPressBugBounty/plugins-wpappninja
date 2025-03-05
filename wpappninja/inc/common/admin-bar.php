@@ -154,6 +154,9 @@ function _wpappninja_admin_bar_css() {
 
 /** Ask for a review **/
 add_action('admin_notices', function () {
+
+	if (!current_user_can('manage_options')) {return;}
+
 	$user_id = get_current_user_id();
 	$meta_key = 'wpmobileapp_rateme_dismissed003';
 

@@ -694,12 +694,13 @@ add_action('peepso_action_add_message_recipient_after', function($data) {
 			$message = 'New message. Click to view';
 		}
 
-		$PeepSoMessages = PeepSoMessages::get_instance();
-		$link           = PeepSo::get_page( 'messages' );//$PeepSoMessages->get_message_url($data);
+		$link           = PeepSo::get_page( 'messages' );
 
 		$image = " ";
 
-		wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		if (is_email($to_user->user_email) && strlen($title) > 2) {
+			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		}
 	}
 });
 add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
@@ -710,9 +711,11 @@ add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
 		$title   = $from_user->get_firstname();
 		$message = __( 'Sent you a friend request', 'peepso-app' );
 		$link    = $to_user->get_profileurl() . 'friends/requests';
-		$image   = " "; // ???
+		$image   = " ";
 
-		wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		if (is_email($to_user->user_email) && strlen($title) > 2) {
+			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		}
 	}
 
 }, 10, 2);

@@ -12,6 +12,10 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.60 =
+* Fix Peepso notifications
+* Rating notice only for admins
+
 = 11.59 =
 * Fix rating link
 

@@ -172,9 +172,9 @@ add_action('admin_notices', function () {
 
 			<?php
 			if (get_user_locale() === 'fr_FR') { ?>
-				<p><big>🎉 Félicitations, votre application a dépassé les <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> téléchargements</b> ! 🚀</big><br/>Ce serait génial si vous pouviez <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">laisser un avis</a> ! ⭐️⭐️⭐️⭐️⭐️ 4.9</p>
+				<p><big>🎉 Félicitations, votre application a dépassé les <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> téléchargements</b> ! 🚀</big><br/>Ce serait génial si vous pouviez <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">laisser un avis</a> ! ⭐️⭐️⭐️⭐️⭐️ 4.7</p>
 			<?php } else { ?>
-				<p><big>🎉 Congratulations, your application has exceeded <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> downloads</b>! 🚀</big><br/>It will be awesome if you can <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">leave a review</a>! ⭐️⭐️⭐️⭐️⭐️ 4.9</p>
+				<p><big>🎉 Congratulations, your application has exceeded <b><?php echo @round(floor($sub[0]->sub / 100) * 100);?> downloads</b>! 🚀</big><br/>It will be awesome if you can <a class="notice-dismiss-link" href="https://wordpress.org/support/plugin/wpappninja/reviews/" target="_blank">leave a review</a>! ⭐️⭐️⭐️⭐️⭐️ 4.7</p>
 			<?php } ?>
 		</div>
 		<script>

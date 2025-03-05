@@ -656,7 +656,7 @@ function wpmobileapp_send_push_peepso( $array ) {
         if ($user_email != "" && $title != "") {
             $message = "";
             $image = " ";
-            $link = get_bloginfo('url') . "/notifications/";
+            $link = PeepSo::get_page('notifications');
 
             wpmobileapp_push($title, $message, $image, $link, 'all', '', $user_email);
         }
@@ -675,7 +675,10 @@ add_action('peepso_action_add_message_recipient_after', function($data) {
 		}
 
 		$from_user = PeepSoUser::get_instance( $from_id );
-		$to_user   = PeepSoUser::get_instance( $to_id );
+
+		$to_user_info = get_userdata($to_id);
+		$to_user_email = $to_user_info->user_email;
+
 		$post      = get_post( $data['mrec_msg_id'] );
 
 		$title = $from_user->get_firstname();
@@ -698,23 +701,28 @@ add_action('peepso_action_add_message_recipient_after', function($data) {
 
 		$image = " ";
 
-		if (is_email($to_user->user_email) && strlen($title) > 2) {
-			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		if (is_email($to_user_email) && strlen($title) > 2) {
+			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user_email );
 		}
 	}
 });
 add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
 	if (get_wpappninja_option('wpmobile_auto_peepso') == '1') {
-		$from_user = PeepSoUser::get_instance( $from_id );
+
 		$to_user   = PeepSoUser::get_instance( $to_id );
 
-		$title   = $from_user->get_firstname();
+		$from_user_info = get_userdata($from_id);
+
+		$to_user_info = get_userdata($to_id);
+		$to_user_email = $to_user_info->user_email;
+
+		$title   = $from_user_info->first_name;
 		$message = __( 'Sent you a friend request', 'peepso-app' );
 		$link    = $to_user->get_profileurl() . 'friends/requests';
 		$image   = " ";
 
-		if (is_email($to_user->user_email) && strlen($title) > 2) {
-			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user->user_email );
+		if (is_email($to_user_email) && strlen($title) > 2) {
+			wpmobileapp_push( $title, $message, $image, $link, 'all', '', $to_user_email );
 		}
 	}
 

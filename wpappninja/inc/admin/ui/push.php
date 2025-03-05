@@ -448,7 +448,7 @@ if ($menu_current == 'push') {
 		
 				// historique
 				$limit = 0;
-				$number = 50;
+				$number = 20;
 				if (isset($_GET['limit'])) {
 					$limit = round($_GET['limit'] * $number);
 				}

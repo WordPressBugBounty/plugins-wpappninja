@@ -704,7 +704,7 @@ if (get_wpappninja_option('speed') == '1' && get_wpappninja_option('speed_trad')
 								</div>
 								<?php
 
-								echo '<h2>'.__('Categorie', 'wpappninja').'</h2>';
+								echo '<h2>'.__('Category', 'wpappninja').'</h2>';
 								$row = $wpdb->get_results("SELECT COUNT(device_id) as nb FROM {$wpdb->prefix}wpappninja_ids");
 								echo '<label><input type="radio" name="wpappninjapush_category" value="" checked /><b>';
 									if ($row[0]->nb > 0) {echo '<span style="background: #5b9dd9;color: white;display:inline-block;padding: 3px 5px;font-size:11px;margin-right: 10px;min-width: 90px;border-radius:4px;margin-bottom: 10px;text-align: center;">';echo $row[0]->nb.' '._n('user', 'users', round($row[0]->nb), 'wpappninja');}else{echo '<span style="background: #a9a9a9;color: white;display:inline-block;padding: 3px 5px;font-size:11px;margin-left: 25px;border-radius:4px;margin-bottom: 10px;">';echo '0 ' . __('subscriber', 'wpappninja');}

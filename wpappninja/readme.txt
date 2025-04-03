@@ -12,6 +12,11 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.62 =
+* Remove the "rate me" banner
+* Fix typo
+* Update it translation
+
 = 11.61 =
 * Fix Peepso notifications
 

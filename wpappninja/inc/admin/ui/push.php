@@ -500,7 +500,7 @@ if ($menu_current == 'push') {
 					$avant = __('%s ago', 'wpappninja');
 					if ($obj->send_date > current_time('timestamp')) {$avant = __('in %s', 'wpappninja');}
 					
-					echo '<div style="position:relative;    margin-bottom: 15px;">' . $icon . ' ' . $stats . ' ' . sprintf($avant, human_time_diff( $obj->send_date, current_time('timestamp') )) . '
+					echo '<div style="position:relative;    margin-bottom: 15px;">' . $icon . ' ' . $stats . ' ' . sprintf($avant, human_time_diff( $obj->send_date, current_time('timestamp') )) . ' ('.date_i18n(get_option('date_format') . ' @ ' . get_option('time_format'), $obj->send_date).')
 						 ' . $annuler;if (preg_match('#^http#', $obj->id_post)) {echo '<br/>&nbsp;&nbsp;&nbsp;&nbsp;link: <a href="'.$obj->id_post.'" target="_blank">'.$obj->id_post.'</a>';}echo '</div>';
 
 

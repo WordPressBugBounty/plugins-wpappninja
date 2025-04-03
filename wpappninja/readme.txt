@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.63 =
+* Add the date on the push schedule
+
 = 11.62 =
 * Remove the "rate me" banner
 * Fix typo

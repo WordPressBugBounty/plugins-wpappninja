@@ -2,7 +2,7 @@
 Contributors: amauric
 Tags: mobile app, android app, ios app, android, ios
 Requires at least: 3.7.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -11,6 +11,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
+
+= 11.65 =
+* Bump supported version
+
+= 11.64 =
+* Fix chart not displayed on stats
 
 = 11.63 =
 * Add the date on the push schedule

@@ -82,7 +82,38 @@ function wpappninja_stats_human($action, $value) {
 function wpappninja_stats_human_title($action) {
 
 	switch ($action) {
-		
+
+		case 'push':
+			return "push notifications";
+
+		case 'comment':
+			return "comments";
+
+		case 'read':
+			return "page view";
+
+		case 'bycat':
+			return "category";
+
+		case 'recent':
+			return "recent posts";
+
+		case 'form':
+			return "form";
+
+		case 'search':
+			return "search";
+
+		case 'install':
+			return "install";
+
+		case 'login':
+			return "login";
+
+		case 'signup':
+			return "register";
+
+			/*
 		case 'push':
 			return __('notification', 'wpappninja');
 			
@@ -112,6 +143,7 @@ function wpappninja_stats_human_title($action) {
 
 		case 'signup':
 			return __('register', 'wpappninja');
+			*/
 	}
 
 	return $action;
@@ -308,5 +340,5 @@ function wpappninja_chart_js() {
 	{name: '" . ucfirst(wpappninja_stats_human_title('read')) . "', data: [$read]},";
 	}
 
-	echo "<script type=\"text/javascript\">jQuery(function () {jQuery('#wpappninja_stats_graph_holder').highcharts({colors: ['#4caf50','#9c27b0', '#2196f3', '#00BCD4',  '#FF9800', '#607d8b'],credits: {  enabled: false  },chart: {type: 'column'},title: {text: '" . __('App activity', 'wpappninja') . "'},xAxis: {categories: [" . $xaxis . "],crosshair: true},yAxis: {min: 0,title: {text: '" . __('By day', 'wpappninja') . "'}},tooltip: {headerFormat: '<span style=\"font-size:10px\">{point.key}</span><table>',pointFormat: '<tr><td style=\"color:{series.color};padding:0\">{series.name}: </td>' +'<td style=\"padding:0\"><b>{point.y:.0f}</b></td></tr>',footerFormat: '</table>',shared: true,useHTML: true},plotOptions: {column: {pointPadding: 0.2,borderWidth: 0}},series: [" . $yaxis . "]});});</script>";
+	echo "<script type=\"text/javascript\">jQuery(function () {jQuery('#wpappninja_stats_graph_holder').highcharts({colors: ['#4caf50','#9c27b0', '#2196f3', '#00BCD4',  '#FF9800', '#607d8b'],credits: {  enabled: false  },chart: {type: 'column'},title: {text: 'App activity'},xAxis: {categories: [" . $xaxis . "],crosshair: true},yAxis: {min: 0,title: {text: ' '}},tooltip: {headerFormat: '<span style=\"font-size:10px\">{point.key}</span><table>',pointFormat: '<tr><td style=\"color:{series.color};padding:0\">{series.name}: </td>' +'<td style=\"padding:0\"><b>{point.y:.0f}</b></td></tr>',footerFormat: '</table>',shared: true,useHTML: true},plotOptions: {column: {pointPadding: 0.2,borderWidth: 0}},series: [" . $yaxis . "]});});</script>";
 }

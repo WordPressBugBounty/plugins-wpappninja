@@ -688,13 +688,13 @@ add_action('peepso_action_add_message_recipient_after', function($data) {
 		$message = apply_filters( 'peepso_remove_shortcodes', $message );
 
 		if ( $message == PeepSoMessagesPlugin::MESSAGE_INLINE_LEFT_CONVERSATION ) {
-			$message = 'Left the conversation';
+			$message = __( 'Left the conversation', 'wpappninja' );
 		} elseif ( $message == PeepSoMessagesPlugin::MESSAGE_INLINE_NEW_GROUP ) {
-			$message = 'Created a new group conversation';
+			$message = __( 'Created a new group conversation', 'wpappninja' );
 		}
 
 		if ( ! strlen( $message ) ) {
-			$message = 'New message. Click to view';
+			$message = __( 'New message. Click to view', 'wpappninja' );
 		}
 
 		$link           = PeepSo::get_page( 'messages' );
@@ -717,7 +717,7 @@ add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
 		$to_user_email = $to_user_info->user_email;
 
 		$title   = $from_user_info->first_name;
-		$message = __( 'Sent you a friend request', 'peepso-app' );
+		$message = __( 'Sent you a friend request', 'wpappninja' );
 		$link    = $to_user->get_profileurl() . 'friends/requests';
 		$image   = " ";
 

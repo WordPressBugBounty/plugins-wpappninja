@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.66 =
+* Add esperanto locale
+
 = 11.65 =
 * Bump supported version
 

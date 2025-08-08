@@ -3,7 +3,7 @@
 Plugin Name: WPMobile.App
 Plugin URI: https://wpmobile.app/
 Description: Android and iOS mobile application. Easy setup, free test.
-Version: 11.66
+Version: 11.67
 Author: Amauri
 Author URI: https://wpmobile.app/
 Licence: GPLv2
@@ -14,7 +14,7 @@ Domain Path: /languages/
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 // common
-define( 'WPAPPNINJA_VERSION'	 		, '11.66' );
+define( 'WPAPPNINJA_VERSION'	 		, '11.67' );
 define( 'WPAPPNINJA_VERSION_APP'        , '100' );
 
 if (defined('WPAPPNINJA_WHITE_LABEL')) {

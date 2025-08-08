@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.67 =
+* Update French translations
+
 = 11.66 =
 * Add esperanto locale
 

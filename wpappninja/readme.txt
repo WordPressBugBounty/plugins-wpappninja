@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.69 =
+* Add more debug info
+
 = 11.68 =
 * Add a debug feature for push
 

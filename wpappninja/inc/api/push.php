@@ -22,11 +22,24 @@ function wpmobile_getAuthConfig() {
 }
 function wpmobile_getOauthToken() {
 
+	if (isset($_GET['pagename']) == 'googlebearer') {
+		echo 'OPTION: '. get_option('wpmobile_firebase_config', '');
+		echo "\r\n";
+		echo "\r\n";
+	}
+
     if (get_option('wpmobile_firebase_config', '') == '') {
         return;
     }
     
     $authConfigString = @file_get_contents(get_option('wpmobile_firebase_config', ''));
+
+	if (isset($_GET['pagename']) == 'googlebearer') {
+		echo 'FILE: '. $authConfigString;
+		echo "\r\n";
+		echo "\r\n";
+	}
+
     $authConfig = json_decode($authConfigString);
     $secret = openssl_get_privatekey($authConfig->private_key);
     $header = json_encode([
@@ -57,6 +70,12 @@ function wpmobile_getOauthToken() {
     ));
     $context  = stream_context_create($options);
     $responseText = file_get_contents("https://oauth2.googleapis.com/token", false, $context);
+
+	if (isset($_GET['pagename']) == 'googlebearer') {
+		echo 'RESPONSE: '. $responseText;
+		echo "\r\n";
+		echo "\r\n";
+	}
 
     $responseOAuth = json_decode($responseText, true);
     return $responseOAuth['access_token'];

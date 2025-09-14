@@ -135,6 +135,12 @@ function wpappninja_api_rewrite() {
 					$output = @file_get_contents(get_option('wpappninja_google_json', ''));
 					break;
 
+				case 'googlebearer':
+					if (current_user_can('administrator')) {
+						$output = wpmobile_getOauthToken();
+					}
+					break;
+
 				case 'pemfile':
 					$output = @file_get_contents(get_option('wpappninja_pem_file', ''));
 					break;

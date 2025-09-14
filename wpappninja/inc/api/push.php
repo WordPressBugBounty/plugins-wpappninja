@@ -62,14 +62,34 @@ function wpmobile_getOauthToken() {
     $base64UrlSignature = wpmobile_base64UrlEncode($signature);
     $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
 
-    $options = array('http' => array(
+    /*$options = array('http' => array(
         'method'  => 'POST',
         'content' => 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion='.$jwt,
         'header'  =>
             "Content-Type: application/x-www-form-urlencoded"
     ));
     $context  = stream_context_create($options);
-    $responseText = file_get_contents("https://oauth2.googleapis.com/token", false, $context);
+    $responseText = file_get_contents("https://oauth2.googleapis.com/token", false, $context);*/
+
+	$payload = [
+		'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+		'assertion'  => $jwt,
+	];
+
+	$response = wp_remote_post("https://oauth2.googleapis.com/token", [
+		'body'    => $payload,
+		'headers' => [
+			'Content-Type' => 'application/x-www-form-urlencoded',
+		],
+		'timeout' => 20,
+	]);
+
+	if (is_wp_error($response)) {
+		$responseText = false;
+		error_log('Erreur WP_HTTP: ' . $response->get_error_message());
+	} else {
+		$responseText = wp_remote_retrieve_body($response);
+	}
 
 	if (isset($_GET['pagename']) == 'googlebearer') {
 		echo 'RESPONSE: '. $responseText;

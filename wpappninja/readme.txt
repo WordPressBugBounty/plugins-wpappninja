@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.70 =
+* Switch from file_get_contents to wp_remote_get
+
 = 11.69 =
 * Add more debug info
 

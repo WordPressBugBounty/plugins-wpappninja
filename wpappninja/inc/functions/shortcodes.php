@@ -175,7 +175,7 @@ function wpmobileapp_reset_password() {
 		$wpappninja_popup .= '<script>jQuery(function(){app.dialog.alert( \''.__('Impossible to reset the password for this email.', 'wpappninja').'\',\''.__('Error', 'wpappninja').'\',function(){app.popup.open(jQuery(\'.popup-reset\'));});});</script>';
 	} else {
 	    global $wpappninja_popup;
-		$wpappninja_popup .= '<script>jQuery(function(){app.dialog.alert(\''.__('Reset link sended. Check your mailbox.', 'wpappninja').'\',\''.__('Reset successfull', 'wpappninja').'\', function(){});});</script>';
+		$wpappninja_popup .= '<script>jQuery(function(){app.dialog.alert(\''.__('A password reset link has been sent to your email address.', 'wpappninja').'\',\''.__('Request successful', 'wpappninja').'\', function(){});});</script>';
 	}
 
 }

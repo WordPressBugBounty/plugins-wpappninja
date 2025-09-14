@@ -98,6 +98,9 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
 	$catID = '';
 
 	$response	= '';
+	if (get_wpappninja_option('debugpush', '0') === '1') {
+		$response .= "=== START DEBUG ===\n";
+	}
 	
 	$certFile = get_option('wpappninja_pem_file', '');
 
@@ -120,6 +123,10 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
                 $idsIOS[] = str_replace('_IOS_', '', $ios_id);
 			}
 		}
+
+		if (get_wpappninja_option('debugpush', '0') === '1') {
+			$response .= "iOS: " . count($idsIOS) . "\n";
+		}
   
   		$mini_ios 	= array_chunk($idsIOS, 10000);
 		for($i=0;$i<count($mini_ios);$i++) {
@@ -131,6 +138,17 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
                 'body' => array( 'url'=>get_bloginfo('url') . '/', 'postID'=> strval($postID), 'title'=>$iostitle, 'content'=>$ioscontent, 'certFile' => file_get_contents($certFile),  'ids' => json_encode($mini_ios[$i]) ),
                 )
             );
+
+			if (get_wpappninja_option('debugpush', '0') === '1') {
+				if ( is_wp_error( $bypass ) ) {
+					$response .= "Erreur : " . $bypass->get_error_message();
+				} else {
+					$response .= "HTTP Code: " . wp_remote_retrieve_response_code( $bypass ) . "\n";
+					$response .= "HTTP Message: " . wp_remote_retrieve_response_message( $bypass ) . "\n\n";
+					$response .= wp_remote_retrieve_body( $bypass ) . "\n\n";
+				}
+			}
+
             usleep(30000);
         }
 	} else {
@@ -148,6 +166,10 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
 		$msg = wpappninja_nice_cut($content, 254);
 		
 		$url    = 'https://fcm.googleapis.com/v1/projects/'.wpmobile_getAuthConfig().'/messages:send';
+
+		if (get_wpappninja_option('debugpush', '0') === '1') {
+			$response .= "Android: " . count($ids) . "\n";
+		}
   
         if (get_transient( "wpmobileAndroidTopic") == true) {
         
@@ -176,6 +198,16 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
 					'headers' => $headers,
 					'body' => json_encode($fields)
                 ));
+
+	        if (get_wpappninja_option('debugpush', '0') === '1') {
+		        if ( is_wp_error( $result ) ) {
+			        $response .= "Erreur : " . $result->get_error_message();
+		        } else {
+			        $response .= "HTTP Code: " . wp_remote_retrieve_response_code( $result ) . "\n";
+			        $response .= "HTTP Message: " . wp_remote_retrieve_response_message( $result ) . "\n\n";
+			        $response .= wp_remote_retrieve_body( $result ) . "\n\n";
+		        }
+	        }
         
         } else {
             $oAuthTokenPush = wpmobile_getOauthToken();
@@ -206,6 +238,16 @@ function wpappninja_send_push($ids, $title, $content, $image, $postID, $permalin
 					'headers' => $headers,
 					'body' => json_encode($fields)
                 ));
+
+				if (get_wpappninja_option('debugpush', '0') === '1') {
+					if ( is_wp_error( $result ) ) {
+						$response .= "Erreur : " . $result->get_error_message();
+					} else {
+						$response .= "HTTP Code: " . wp_remote_retrieve_response_code( $result ) . "\n";
+						$response .= "HTTP Message: " . wp_remote_retrieve_response_message( $result ) . "\n\n";
+						$response .= wp_remote_retrieve_body( $result ) . "\n\n";
+					}
+				}
                 
                 usleep(3000);
             }

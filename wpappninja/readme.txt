@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.68 =
+* Add a debug feature for push
+
 = 11.67 =
 * Update French translations
 

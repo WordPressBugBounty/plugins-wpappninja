@@ -244,6 +244,7 @@ function _wpappninja_display_push_page() {
 		$welcome_content = sanitize_text_field($_POST['welcome_content']);
 
 		$redirection_type = sanitize_text_field($_POST['wpappninja_redirection_type']);
+        $debugpush = sanitize_text_field($_POST['wpappninja_debugpush']);
 		$iosjusttitle = sanitize_text_field($_POST['iosjusttitle']);
 
 		$option = get_option(WPAPPNINJA_SLUG);
@@ -256,6 +257,7 @@ function _wpappninja_display_push_page() {
 		$option['customiconnotif'] = $customiconnotif;
 		$option['push_category'] = $push_category;
 		$option['redirection_type'] = $redirection_type;
+        $option['debugpush'] = $debugpush;
 		$option['iosjusttitle'] = $iosjusttitle;
 
 		update_option(WPAPPNINJA_SLUG, $option);
@@ -516,8 +518,11 @@ if ($menu_current == 'push') {
 					</div>
 					<div class="clear" style="height:0px"></div>';
 
+                        if ($obj->log !== "") {
+                            echo '<textarea style="font-family: Courier New;background: #333;color: white;font-size:11px;width:100%;height:90px;" >'.strip_tags(preg_replace('#<br/>#', "\r\n", $obj->log)).'</textarea>';
+                        }
 
-					echo '<form id="wpappninja_d_n_'.$obj->send_date.'" style="margin: -20px 0 50px 380px;display:block" action="'.admin_url('admin.php?page=' . WPAPPNINJA_PUSH_SLUG . '&postID').'" method="post">'.wp_nonce_field( 'wpappninja-delete-push-' . $obj->send_date ).'<input type="hidden" name="NOTIFICATIONSPUSH" value="1" /><input type="hidden" name="supprimer_notif" value="'.$obj->send_date.'" /><input style="background: none;border: 0;text-decoration: underline;color: red;margin-left: 20px;" type="submit" value="'.__('Delete', 'wpappninja').'" /></form>';
+					echo '<form id="wpappninja_d_n_'.$obj->send_date.'" style="margin: 0px 0 50px 380px;display:block" action="'.admin_url('admin.php?page=' . WPAPPNINJA_PUSH_SLUG . '&postID').'" method="post">'.wp_nonce_field( 'wpappninja-delete-push-' . $obj->send_date ).'<input type="hidden" name="NOTIFICATIONSPUSH" value="1" /><input type="hidden" name="supprimer_notif" value="'.$obj->send_date.'" /><input style="background: none;border: 0;text-decoration: underline;color: red;margin-left: 20px;" type="submit" value="'.__('Delete', 'wpappninja').'" /></form>';
 				}
 
 				echo '<div style="border:1px solid #ccc;padding: 15px 0;background:#fff;text-align:center;font-size: 14px;max-width: 320px;">';

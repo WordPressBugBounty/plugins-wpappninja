@@ -3657,7 +3657,7 @@ display:none;
 			<input name="<?php echo WPAPPNINJA_SLUG;?>[fastsplash]" value="<?php echo get_wpappninja_option('fastsplash', '500'); ?>" type="hidden" />
 
 
-
+                <input name="<?php echo WPAPPNINJA_SLUG;?>[debugpush]" value="<?php echo get_wpappninja_option('debugpush', '0'); ?>" type="hidden" />
 			<input name="<?php echo WPAPPNINJA_SLUG;?>[redirection_type]" value="<?php echo get_wpappninja_option('redirection_type', '1'); ?>" type="hidden" />
 			<input name="<?php echo WPAPPNINJA_SLUG;?>[sdk2019]" value="<?php echo get_wpappninja_option('sdk2019', '0'); ?>" type="hidden" />
 

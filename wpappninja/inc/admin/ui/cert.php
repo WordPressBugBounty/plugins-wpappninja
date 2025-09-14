@@ -164,6 +164,19 @@ function _wpappninja_display_cert_page() {
 	<div class="clear"></div>
 </div>
 
+
+    <div class="wpappninja-builder">
+        <div class="wpappninja-builder-left">
+            <?php _e('Debug push', 'wpappninja');?>
+        </div>
+        <div class="wpappninja-builder-right">
+
+            <select name="wpappninja_debugpush"><option value="1">On</option><option value="0" <?php if (get_wpappninja_option('debugpush', '0') === '0'){echo 'selected';}?>>Off</option></select>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
 <div class="wpappninja-builder" style="display:none">
 	<div class="wpappninja-builder-left">
 		<?php _e('Show the box to send push on page editor', 'wpappninja');?>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPMobile.App\n"
-"POT-Creation-Date: 2025-09-02 12:08+0200\n"
-"PO-Revision-Date: 2025-09-02 12:14+0200\n"
+"POT-Creation-Date: 2025-11-22 22:03+0100\n"
+"PO-Revision-Date: 2025-11-22 22:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpappninja.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -47,7 +47,7 @@ msgid "Subject"
 msgstr "Sujet"
 
 #: inc/3rd-party/automatorwp/actions/send-push.php:45 inc/admin/ui/auto.php:918
-#: inc/admin/ui/auto.php:1658 inc/admin/ui/cert.php:585
+#: inc/admin/ui/auto.php:1658 inc/admin/ui/cert.php:639
 #: inc/admin/ui/options.php:1335 inc/admin/ui/pwa.php:186
 #: inc/common/admin-bar.php:58 inc/functions/colors.php:204
 #: inc/functions/colors.php:205 inc/functions/colors.php:207
@@ -61,16 +61,16 @@ msgid "Content"
 msgstr "Contenu"
 
 #: inc/3rd-party/automatorwp/actions/send-push.php:51
-#: inc/admin/ui/adserver.php:295 inc/admin/ui/push.php:647
+#: inc/admin/ui/adserver.php:295 inc/admin/ui/push.php:658
 msgid "Link"
 msgstr "Lien"
 
-#: inc/admin/import.php:326 inc/functions/shortcodes.php:1241
-#: inc/functions/shortcodes.php:1255
+#: inc/admin/import.php:326 inc/functions/shortcodes.php:1242
+#: inc/functions/shortcodes.php:1256
 msgid "My home"
 msgstr "Mon application"
 
-#: inc/admin/import.php:331 inc/functions/shortcodes.php:897
+#: inc/admin/import.php:331 inc/functions/shortcodes.php:898
 msgid "Share"
 msgstr "Partager"
 
@@ -79,23 +79,23 @@ msgid "QRCode reader"
 msgstr "Lecteur de QRCode"
 
 #: inc/admin/import.php:341 inc/admin/import.php:448 inc/admin/import.php:542
-#: inc/admin/ui/options.php:3794 inc/admin/ui/options.php:3840
+#: inc/admin/ui/options.php:3800 inc/admin/ui/options.php:3846
 msgid "Push config"
 msgstr "Notifications"
 
 #: inc/admin/import.php:346 inc/admin/import.php:439 inc/admin/import.php:535
-#: inc/admin/ui/options.php:3787 inc/admin/ui/options.php:3833
+#: inc/admin/ui/options.php:3793 inc/admin/ui/options.php:3839
 msgid "Notification history"
 msgstr "Historique des notifications"
 
 #: inc/admin/import.php:351 inc/functions/sdk2019.php:54
-#: inc/functions/shortcodes.php:360 inc/stats/render.php:34
+#: inc/functions/shortcodes.php:361 inc/stats/render.php:34
 msgid "Login"
 msgstr "Connexion"
 
 #: inc/admin/import.php:356 inc/admin/import.php:421 inc/admin/import.php:430
 #: inc/admin/import.php:528 inc/admin/ui/auto.php:229 inc/admin/ui/auto.php:237
-#: inc/admin/ui/options.php:3780 inc/admin/ui/options.php:3826
+#: inc/admin/ui/options.php:3786 inc/admin/ui/options.php:3832
 #: inc/api/json.php:159 inc/api/json.php:361 inc/functions/sdk2019.php:50
 #: inc/stats/render.php:30 inc/stats/render.php:62
 msgid "Recent posts"
@@ -202,7 +202,7 @@ msgstr "Cet article est déjà publié. Désactivation par défaut."
 msgid "Set a notification?"
 msgstr "Programmer une notification ?"
 
-#: inc/admin/metabox.php:129 inc/admin/ui/push.php:817
+#: inc/admin/metabox.php:129 inc/admin/ui/push.php:828
 msgid "Send date"
 msgstr "Date d’envoi"
 
@@ -218,7 +218,7 @@ msgstr "Choisir une date"
 msgid "Categorie"
 msgstr "Catégorie"
 
-#: inc/admin/metabox.php:146 inc/admin/ui/push.php:711
+#: inc/admin/metabox.php:146 inc/admin/ui/push.php:722
 #: inc/admin/ui/stats.php:231
 msgid "All"
 msgstr "Tout"
@@ -285,17 +285,17 @@ msgstr "Passez le mot"
 msgid "Learn how to send a notification when you publish"
 msgstr "Apprenez à envoyer une notification quand vous publiez"
 
-#: inc/admin/ui/adserver.php:91 inc/admin/ui/push.php:352
+#: inc/admin/ui/adserver.php:91 inc/admin/ui/push.php:360
 #: inc/admin/ui/pwa.php:106
 msgid "Progressive Web App is a free feature"
 msgstr "La Progressive Web App est une fonction gratuite"
 
-#: inc/admin/ui/adserver.php:95 inc/admin/ui/push.php:356
+#: inc/admin/ui/adserver.php:95 inc/admin/ui/push.php:364
 #: inc/admin/ui/pwa.php:110
 msgid "Learn how to turn on advertising on the app"
 msgstr "Apprenez à afficher des annonces dans votre appli"
 
-#: inc/admin/ui/adserver.php:102 inc/admin/ui/push.php:363
+#: inc/admin/ui/adserver.php:102 inc/admin/ui/push.php:371
 #: inc/admin/ui/pwa.php:117 inc/admin/ui/submenu.php:56
 msgid "+ more"
 msgstr "En savoir plus"
@@ -317,7 +317,7 @@ msgid "New ad"
 msgstr "Nouvelle publicité"
 
 #: inc/admin/ui/adserver.php:112 inc/admin/ui/promote.php:43
-#: inc/admin/ui/push.php:379
+#: inc/admin/ui/push.php:387
 msgid "settings"
 msgstr "réglages"
 
@@ -334,7 +334,7 @@ msgid "HTML Code"
 msgstr "Code HTML"
 
 #: inc/admin/ui/adserver.php:129 inc/admin/ui/adserver.php:241
-#: inc/admin/ui/push.php:570 inc/admin/ui/stats.php:187
+#: inc/admin/ui/push.php:581 inc/admin/ui/stats.php:187
 #: inc/admin/ui/stats.php:202
 msgid "Close"
 msgstr "Fermer"
@@ -366,12 +366,12 @@ msgstr "Afficher une annonce avant et après le contenu"
 #: inc/admin/ui/auto.php:1926 inc/admin/ui/auto.php:1940
 #: inc/admin/ui/auto.php:1954 inc/admin/ui/auto.php:1968
 #: inc/admin/ui/auto.php:2074 inc/admin/ui/auto.php:2104
-#: inc/admin/ui/auto.php:2115 inc/admin/ui/cert.php:173
-#: inc/admin/ui/cert.php:198 inc/admin/ui/cert.php:210
-#: inc/admin/ui/cert.php:222 inc/admin/ui/cert.php:234
-#: inc/admin/ui/cert.php:246 inc/admin/ui/cert.php:259
-#: inc/admin/ui/cert.php:270 inc/admin/ui/cert.php:282
-#: inc/admin/ui/cert.php:551 inc/admin/ui/options.php:503
+#: inc/admin/ui/auto.php:2115 inc/admin/ui/cert.php:186
+#: inc/admin/ui/cert.php:214 inc/admin/ui/cert.php:226
+#: inc/admin/ui/cert.php:276 inc/admin/ui/cert.php:288
+#: inc/admin/ui/cert.php:300 inc/admin/ui/cert.php:313
+#: inc/admin/ui/cert.php:324 inc/admin/ui/cert.php:336
+#: inc/admin/ui/cert.php:605 inc/admin/ui/options.php:503
 #: inc/admin/ui/options.php:538 inc/admin/ui/options.php:1085
 #: inc/admin/ui/options.php:1517 inc/admin/ui/options.php:1521
 #: inc/admin/ui/options.php:1525 inc/admin/ui/options.php:1529
@@ -409,12 +409,12 @@ msgstr "Oui"
 #: inc/admin/ui/auto.php:1926 inc/admin/ui/auto.php:1940
 #: inc/admin/ui/auto.php:1954 inc/admin/ui/auto.php:1968
 #: inc/admin/ui/auto.php:2074 inc/admin/ui/auto.php:2104
-#: inc/admin/ui/auto.php:2115 inc/admin/ui/cert.php:173
-#: inc/admin/ui/cert.php:198 inc/admin/ui/cert.php:210
-#: inc/admin/ui/cert.php:222 inc/admin/ui/cert.php:234
-#: inc/admin/ui/cert.php:246 inc/admin/ui/cert.php:259
-#: inc/admin/ui/cert.php:270 inc/admin/ui/cert.php:282
-#: inc/admin/ui/cert.php:551 inc/admin/ui/options.php:503
+#: inc/admin/ui/auto.php:2115 inc/admin/ui/cert.php:186
+#: inc/admin/ui/cert.php:214 inc/admin/ui/cert.php:226
+#: inc/admin/ui/cert.php:276 inc/admin/ui/cert.php:288
+#: inc/admin/ui/cert.php:300 inc/admin/ui/cert.php:313
+#: inc/admin/ui/cert.php:324 inc/admin/ui/cert.php:336
+#: inc/admin/ui/cert.php:605 inc/admin/ui/options.php:503
 #: inc/admin/ui/options.php:538 inc/admin/ui/options.php:1085
 #: inc/admin/ui/options.php:1517 inc/admin/ui/options.php:1521
 #: inc/admin/ui/options.php:1525 inc/admin/ui/options.php:1529
@@ -487,12 +487,12 @@ msgstr "La publicité"
 
 #: inc/admin/ui/adserver.php:289 inc/admin/ui/auto.php:1006
 #: inc/admin/ui/auto.php:1603 inc/admin/ui/auto.php:1873
-#: inc/admin/ui/cert.php:344 inc/admin/ui/cert.php:559
+#: inc/admin/ui/cert.php:398 inc/admin/ui/cert.php:613
 #: inc/admin/ui/options.php:581 inc/admin/ui/options.php:867
 #: inc/admin/ui/options.php:918 inc/admin/ui/options.php:1331
 #: inc/admin/ui/options.php:1593 inc/admin/ui/options.php:1656
 #: inc/admin/ui/options.php:3050 inc/admin/ui/options.php:3215
-#: inc/admin/ui/options.php:3483 inc/admin/ui/push.php:639
+#: inc/admin/ui/options.php:3483 inc/admin/ui/push.php:650
 msgid "Title"
 msgstr "Titre"
 
@@ -506,15 +506,15 @@ msgid "Logo"
 msgstr "Logo"
 
 #: inc/admin/ui/adserver.php:302 inc/admin/ui/publish.php:422
-#: inc/admin/ui/push.php:644
+#: inc/admin/ui/push.php:655
 msgid "Choose an image"
 msgstr "Choisir une image"
 
-#: inc/admin/ui/adserver.php:306 inc/admin/ui/push.php:792
+#: inc/admin/ui/adserver.php:306 inc/admin/ui/push.php:803
 msgid "Language"
 msgstr "Langue"
 
-#: inc/admin/ui/adserver.php:313 inc/admin/ui/push.php:829
+#: inc/admin/ui/adserver.php:313 inc/admin/ui/push.php:840
 msgid "Schedule"
 msgstr "Programmer"
 
@@ -570,18 +570,18 @@ msgstr "Date de début :"
 msgid "End date:"
 msgstr "Date de fin :"
 
-#: inc/admin/ui/adserver.php:373 inc/admin/ui/cert.php:523
+#: inc/admin/ui/adserver.php:373 inc/admin/ui/cert.php:577
 #: inc/admin/ui/options.php:389 inc/admin/ui/options.php:395
 #: inc/admin/ui/options.php:408 inc/admin/ui/options.php:1932
 #: inc/admin/ui/options.php:2377 inc/admin/ui/options.php:2992
 #: inc/admin/ui/publish.php:301 inc/admin/ui/publish.php:303
-#: inc/admin/ui/push.php:636 inc/admin/ui/stats.php:150
+#: inc/admin/ui/push.php:647 inc/admin/ui/stats.php:150
 msgid "Edit"
 msgstr "Modifier"
 
 #: inc/admin/ui/adserver.php:375 inc/admin/ui/options.php:3097
-#: inc/admin/ui/push.php:483 inc/admin/ui/push.php:520
-#: inc/admin/ui/push.php:832 inc/admin/ui/push.php:843
+#: inc/admin/ui/push.php:491 inc/admin/ui/push.php:531
+#: inc/admin/ui/push.php:843 inc/admin/ui/push.php:854
 #: inc/admin/ui/qrcode.php:120
 msgid "Delete"
 msgstr "Supprimer"
@@ -1051,91 +1051,109 @@ msgstr "Ouvrir la page liée"
 msgid "Display the notification message"
 msgstr "Afficher le message de notification"
 
-#: inc/admin/ui/cert.php:169
+#: inc/admin/ui/cert.php:170
+msgid "Debug push"
+msgstr "Debug push"
+
+#: inc/admin/ui/cert.php:182
 msgid "Show the box to send push on page editor"
 msgstr "Afficher la boite d’envoi des notification à la publication d’une page"
 
-#: inc/admin/ui/cert.php:188
+#: inc/admin/ui/cert.php:201
 msgid "Automatic push"
 msgstr "Notification automatique"
 
-#: inc/admin/ui/cert.php:194
+#: inc/admin/ui/cert.php:210
 msgid "When a post is published"
 msgstr "Quand un nouvel article est publié"
 
-#: inc/admin/ui/cert.php:206
+#: inc/admin/ui/cert.php:222
 msgid "When a post is published or edited or updated"
 msgstr "Lorsqu’un article est publiée, éditée ou mis à jour"
 
-#: inc/admin/ui/cert.php:218
+#: inc/admin/ui/cert.php:243
+msgid "📄 Trigger only for these categories"
+msgstr "📄 Déclencher uniquement pour ces catégories"
+
+#: inc/admin/ui/cert.php:261
+msgid "If no category is selected, notifications will be sent for all posts."
+msgstr ""
+"Si aucune catégorie n’est sélectionnée, des notifications seront envoyées "
+"pour tous les articles."
+
+#: inc/admin/ui/cert.php:264
+msgid "No categories found."
+msgstr "Aucune catégorie n’a été trouvée."
+
+#: inc/admin/ui/cert.php:272
 msgid "When a WooCommerce order status change"
 msgstr "Quand une commande WooCommerce change de statut"
 
-#: inc/admin/ui/cert.php:230
+#: inc/admin/ui/cert.php:284
 msgid "When a Better Messages notification is triggered"
 msgstr "Lorsqu’une notification Better Messages est envoyée"
 
-#: inc/admin/ui/cert.php:242
+#: inc/admin/ui/cert.php:296
 msgid "When a BuddyPress notification is sent"
 msgstr "Lorsqu’une notification BuddyPress est envoyée"
 
-#: inc/admin/ui/cert.php:255
+#: inc/admin/ui/cert.php:309
 msgid "When a Peepso notification is sent"
 msgstr "Lorsqu’une notification Peepso est envoyée"
 
-#: inc/admin/ui/cert.php:266
+#: inc/admin/ui/cert.php:320
 msgid "When a Gravity Form notification is sent"
 msgstr "Lorsqu’une notification Gravity Form est envoyée"
 
-#: inc/admin/ui/cert.php:278
+#: inc/admin/ui/cert.php:332
 msgid "When a mail is sent to an user"
 msgstr "Lorsqu’un mail est envoyé à un utilisateur"
 
-#: inc/admin/ui/cert.php:297 inc/admin/ui/options.php:1090
+#: inc/admin/ui/cert.php:351 inc/admin/ui/options.php:1090
 msgid "iOS"
 msgstr "iOS"
 
-#: inc/admin/ui/cert.php:303
+#: inc/admin/ui/cert.php:357
 msgid "You need to buy and publish your app before the iOS configuration."
 msgstr ""
 "Vous avez besoin d’acheter et de publier votre application avant la "
 "configuration iOS."
 
-#: inc/admin/ui/cert.php:308
+#: inc/admin/ui/cert.php:362
 msgid "Certificate"
 msgstr "Certificat"
 
-#: inc/admin/ui/cert.php:319 inc/admin/ui/cert.php:394
-#: inc/admin/ui/cert.php:428
+#: inc/admin/ui/cert.php:373 inc/admin/ui/cert.php:448
+#: inc/admin/ui/cert.php:482
 msgid "Uploaded"
 msgstr "Chargé"
 
-#: inc/admin/ui/cert.php:319
+#: inc/admin/ui/cert.php:373
 msgid "Valid until"
 msgstr "Valable jusqu’au"
 
-#: inc/admin/ui/cert.php:324
+#: inc/admin/ui/cert.php:378
 msgid "Expired"
 msgstr "Expiré"
 
-#: inc/admin/ui/cert.php:327 inc/admin/ui/cert.php:400
-#: inc/admin/ui/cert.php:434
+#: inc/admin/ui/cert.php:381 inc/admin/ui/cert.php:454
+#: inc/admin/ui/cert.php:488
 msgid "Missing"
 msgstr "Manquant"
 
-#: inc/admin/ui/cert.php:340
+#: inc/admin/ui/cert.php:394
 msgid "Content of the push"
 msgstr "Contenu de la notification"
 
-#: inc/admin/ui/cert.php:344
+#: inc/admin/ui/cert.php:398
 msgid "Title + Text"
 msgstr "Titre + texte"
 
-#: inc/admin/ui/cert.php:354 inc/admin/ui/options.php:1090
+#: inc/admin/ui/cert.php:408 inc/admin/ui/options.php:1090
 msgid "Android"
 msgstr "Android"
 
-#: inc/admin/ui/cert.php:363
+#: inc/admin/ui/cert.php:417
 msgid ""
 "Follow <a href=\"https://support.wpmobile.app/article/265-get-the-google-"
 "services-json-file-and-api-key?lang=en\" target=\"_blank\">this guide</a> to "
@@ -1145,11 +1163,11 @@ msgstr ""
 "services-json-file-and-api-key?lang=fr\" target=\"_blank\">guide</a> pour "
 "obtenir le fichier google-services.json et une clé API Google"
 
-#: inc/admin/ui/cert.php:363
+#: inc/admin/ui/cert.php:417
 msgid "Your package name is"
 msgstr "Votre nom de package est"
 
-#: inc/admin/ui/cert.php:366
+#: inc/admin/ui/cert.php:420
 msgid ""
 "Follow <a href=\"https://support.wpmobile.app/article/248-how-to-get-an-api-"
 "key-for-android-notifications?lang=en\" target=\"_blank\">this guide</a> to "
@@ -1159,44 +1177,44 @@ msgstr ""
 "api-key-for-android-notifications?lang=fr\" target=\"_blank\">guide</a> pour "
 "obtenir une clé API Google"
 
-#: inc/admin/ui/cert.php:378
+#: inc/admin/ui/cert.php:432
 msgid "google-services.json file"
 msgstr "Fichier google-services.json"
 
-#: inc/admin/ui/cert.php:396
+#: inc/admin/ui/cert.php:450
 msgid "Package name didnt match"
 msgstr "Le nom du package ne correspond pas"
 
-#: inc/admin/ui/cert.php:412
+#: inc/admin/ui/cert.php:466
 msgid "Account service json file"
 msgstr "Fichier json du service de compte"
 
-#: inc/admin/ui/cert.php:430
+#: inc/admin/ui/cert.php:484
 msgid "Firebase project didnt match"
 msgstr "Le projet Firebase ne correspond pas"
 
-#: inc/admin/ui/cert.php:458 inc/admin/ui/options.php:523
+#: inc/admin/ui/cert.php:512 inc/admin/ui/options.php:523
 msgid "Server API Key"
 msgstr "Server API Key"
 
-#: inc/admin/ui/cert.php:482 inc/admin/ui/options.php:527
+#: inc/admin/ui/cert.php:536 inc/admin/ui/options.php:527
 msgid "Sender ID"
 msgstr "Sender ID"
 
-#: inc/admin/ui/cert.php:500
+#: inc/admin/ui/cert.php:554
 msgid "Notification icon"
 msgstr "Icône de notification"
 
-#: inc/admin/ui/cert.php:543
+#: inc/admin/ui/cert.php:597
 msgid "Welcome notification"
 msgstr "Notification de bienvenue"
 
-#: inc/admin/ui/cert.php:547 inc/admin/ui/options.php:502
+#: inc/admin/ui/cert.php:601 inc/admin/ui/options.php:502
 #: inc/admin/ui/options.php:537
 msgid "Send a welcome notification"
 msgstr "Envoyer une notification de bienvenue"
 
-#: inc/admin/ui/cert.php:572 inc/admin/ui/options.php:585
+#: inc/admin/ui/cert.php:626 inc/admin/ui/options.php:585
 msgid "Sub title"
 msgstr "Sous titre"
 
@@ -2045,24 +2063,24 @@ msgstr "Numéro de catégorie à afficher"
 msgid "By category"
 msgstr "Par catégorie"
 
-#: inc/admin/ui/options.php:3765
+#: inc/admin/ui/options.php:3771
 msgid "Start a group"
 msgstr "Commencer un groupe"
 
-#: inc/admin/ui/options.php:3773
+#: inc/admin/ui/options.php:3779
 msgid "End a group"
 msgstr "Fermer un groupe"
 
-#: inc/admin/ui/options.php:3801 inc/functions/sdk2019.php:46
+#: inc/admin/ui/options.php:3807 inc/functions/sdk2019.php:46
 #: inc/stats/render.php:26
 msgid "Custom homepage"
 msgstr "Page d’accueil personnalisé"
 
-#: inc/admin/ui/options.php:3808
+#: inc/admin/ui/options.php:3814
 msgid "Login page"
 msgstr "Page de connexion"
 
-#: inc/admin/ui/options.php:3815
+#: inc/admin/ui/options.php:3821
 msgid "Share box"
 msgstr "Boîte de partage"
 
@@ -2120,7 +2138,7 @@ msgstr "Configuration rapide"
 msgid "Expert mode"
 msgstr "Mode expert"
 
-#: inc/admin/ui/publish.php:291 inc/functions/shortcodes.php:1497
+#: inc/admin/ui/publish.php:291 inc/functions/shortcodes.php:1498
 msgid "Hello!"
 msgstr "Bonjour !"
 
@@ -2183,82 +2201,82 @@ msgstr "Montrer le splashscreen pour maximum"
 msgid "Upload successful"
 msgstr "Envoi réussi"
 
-#: inc/admin/ui/push.php:367
+#: inc/admin/ui/push.php:375
 msgid "You can't send notification until the app is published"
 msgstr ""
 "Votre app n’est pas encore publiée, vous ne pouvez pas envoyer de "
 "notification"
 
-#: inc/admin/ui/push.php:379
+#: inc/admin/ui/push.php:387
 msgid "+ New notification"
 msgstr "+ Nouvelle notification"
 
-#: inc/admin/ui/push.php:480
+#: inc/admin/ui/push.php:488
 msgid "deleted - not sended"
 msgstr "supprimée - non envoyée"
 
-#: inc/admin/ui/push.php:500 inc/functions/shortcodes.php:1038
+#: inc/admin/ui/push.php:508 inc/functions/shortcodes.php:1039
 #, php-format
 msgid "%s ago"
 msgstr "il y a %s"
 
-#: inc/admin/ui/push.php:501
+#: inc/admin/ui/push.php:509
 #, php-format
 msgid "in %s"
 msgstr "dans %s"
 
-#: inc/admin/ui/push.php:530
+#: inc/admin/ui/push.php:541
 msgid "Previous"
 msgstr "Précédent"
 
-#: inc/admin/ui/push.php:536 inc/functions/shortcodes.php:1786
+#: inc/admin/ui/push.php:547 inc/functions/shortcodes.php:1787
 msgid "Next"
 msgstr "Suivant"
 
-#: inc/admin/ui/push.php:547
+#: inc/admin/ui/push.php:558
 msgid "Delete push older than 365 days"
 msgstr "Supprimer les notifications de plus de 365 jours"
 
-#: inc/admin/ui/push.php:548
+#: inc/admin/ui/push.php:559
 msgid "Delete push older than 90 days"
 msgstr "Supprimer les notifications de plus de 90 jours"
 
-#: inc/admin/ui/push.php:549
+#: inc/admin/ui/push.php:560
 msgid "Delete push older than 30 days"
 msgstr "Supprimer les notifications de plus de 30 jours"
 
-#: inc/admin/ui/push.php:550
+#: inc/admin/ui/push.php:561
 msgid "Delete push"
 msgstr "Supprimer toutes les notifications"
 
-#: inc/admin/ui/push.php:553
+#: inc/admin/ui/push.php:564
 msgid "Delete pushs (CANT BE UNDONE)"
 msgstr "Supprimer les notifications (IRREVERSIBLE)"
 
-#: inc/admin/ui/push.php:702
+#: inc/admin/ui/push.php:713
 msgid "Add link"
 msgstr "Ajouter un lien"
 
-#: inc/admin/ui/push.php:707
+#: inc/admin/ui/push.php:718
 msgid "Category"
 msgstr "Catégories"
 
-#: inc/admin/ui/push.php:710 inc/admin/ui/push.php:723
-#: inc/admin/ui/push.php:747
+#: inc/admin/ui/push.php:721 inc/admin/ui/push.php:734
+#: inc/admin/ui/push.php:758
 msgid "user"
 msgid_plural "users"
 msgstr[0] "utilisateur"
 msgstr[1] "Tous les utilisateurs"
 
-#: inc/admin/ui/push.php:710 inc/admin/ui/push.php:723
+#: inc/admin/ui/push.php:721 inc/admin/ui/push.php:734
 msgid "subscriber"
 msgstr "abonné"
 
-#: inc/admin/ui/push.php:747
+#: inc/admin/ui/push.php:758
 msgid "All users"
 msgstr "Tous les utilisateurs"
 
-#: inc/admin/ui/push.php:767 inc/stats/display.php:115
+#: inc/admin/ui/push.php:778 inc/stats/display.php:115
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -2501,7 +2519,7 @@ msgid ""
 "<b>WPMobile.App</b> We've made major improvements on the content render <a "
 "target=\"_blank\" style=\"%s\" href=\"%s\">Test now my enhanced app</a>"
 msgstr ""
-"<b>WPAPP. NINJA</b> Nous avons apporté des améliorations importantes <a "
+"<b>WPMobile.App</b> Nous avons apporté des améliorations importantes <a "
 "target=\"_blank\" style=\"%s\" href=\"%s\">Tester le rendu amélioré</a>"
 
 #: inc/admin/upgrader.php:81
@@ -2529,75 +2547,173 @@ msgstr "Prenez 5 secondes pour la noter sur le Play Store"
 msgid "Read"
 msgstr "Lecture"
 
-#: inc/api/push.php:466
+#: inc/api/push.php:568
 msgctxt "Order status"
 msgid "Pending payment"
 msgstr "En attente de paiement"
 
-#: inc/api/push.php:467
+#: inc/api/push.php:569
 msgctxt "Order status"
 msgid "Processing"
 msgstr "En cours"
 
-#: inc/api/push.php:468
+#: inc/api/push.php:570
 msgctxt "Order status"
 msgid "On hold"
 msgstr "En attente"
 
-#: inc/api/push.php:469
+#: inc/api/push.php:571
 msgctxt "Order status"
 msgid "Completed"
 msgstr "Terminée"
 
-#: inc/api/push.php:470
+#: inc/api/push.php:572
 msgctxt "Order status"
 msgid "Cancelled"
 msgstr "Annulée"
 
-#: inc/api/push.php:471
+#: inc/api/push.php:573
 msgctxt "Order status"
 msgid "Refunded"
 msgstr "Remboursé"
 
-#: inc/api/push.php:472
+#: inc/api/push.php:574
 msgctxt "Order status"
 msgid "Failed"
 msgstr "Échouée"
 
-#: inc/api/push.php:485
+#: inc/api/push.php:587
 #, php-format
 msgid "Order status changed from %s to %s"
 msgstr "État de la commande modifié de %s à %s"
 
-#: inc/api/push.php:491 inc/api/push.php:513
+#: inc/api/push.php:593 inc/api/push.php:615
 msgid "Order updates"
 msgstr "Mises à jour de la commande"
 
-#: inc/api/push.php:566
+#: inc/api/push.php:668
 #, php-format
 msgid "New message from %s"
 msgstr "Nouveau message de %s"
 
-#: inc/api/push.php:567
+#: inc/api/push.php:669
 #, php-format
 msgid "You have new message from %s"
 msgstr "Vous avez un nouveau message de %s"
 
-#: inc/api/push.php:691
+#: inc/api/push.php:793
 msgid "Left the conversation"
 msgstr "Quitté la conversation"
 
-#: inc/api/push.php:693
+#: inc/api/push.php:795
 msgid "Created a new group conversation"
 msgstr "Création d’une conversation de groupe"
 
-#: inc/api/push.php:697
+#: inc/api/push.php:799
 msgid "New message. Click to view"
 msgstr "Nouveau message. Cliquez pour voir"
 
-#: inc/api/push.php:720
+#: inc/api/push.php:822
 msgid "Sent you a friend request"
 msgstr "Vous a envoyé une demande d’ami"
+
+#: inc/api/push.php:918
+msgid "New space joined"
+msgstr "Nouvel espace ajouté"
+
+#: inc/api/push.php:920
+#, php-format
+msgid "You joined the space \"%s\"."
+msgstr "Tu as rejoint l’espace « %s »."
+
+#: inc/api/push.php:921
+msgid "You joined a new space."
+msgstr "Tu as rejoint un nouvel espace."
+
+#: inc/api/push.php:943
+msgid "Join request sent"
+msgstr "Demande de rejoindre envoyée"
+
+#: inc/api/push.php:945
+#, php-format
+msgid "Your request to join the space \"%s\" has been sent."
+msgstr "Votre demande de rejoindre l’espace « %s » a été envoyée."
+
+#: inc/api/push.php:946
+msgid "Your request to join the space has been sent."
+msgstr "Votre demande de rejoindre l’espace a été envoyée."
+
+#: inc/api/push.php:971
+msgid "New comment"
+msgstr "Nouveau commentaire"
+
+#: inc/api/push.php:972
+msgid "Someone commented on your post."
+msgstr "Quelqu’un a commenté votre article."
+
+#: inc/api/push.php:998 inc/api/push.php:1037
+msgid "You were mentioned"
+msgstr "Votre avez été mentionné"
+
+#: inc/api/push.php:999
+msgid "You were mentioned in a comment."
+msgstr "Vous avez été mentionné dans un commentaire."
+
+#: inc/api/push.php:1038
+msgid "You were mentioned in a post."
+msgstr "Vous avez été mentionné dans un post."
+
+#: inc/api/push.php:1060
+msgid "Course enrolled"
+msgstr "Formation ajoutée"
+
+#: inc/api/push.php:1062
+#, php-format
+msgid "You are now enrolled in the course \"%s\"."
+msgstr "Vous êtes désormais inscrit au cours « %s »."
+
+#: inc/api/push.php:1063
+msgid "You are now enrolled in a course."
+msgstr "Vous êtes désormais inscrit à un cours."
+
+#: inc/api/push.php:1085
+msgid "Course completed"
+msgstr "Cours terminé"
+
+#: inc/api/push.php:1087
+#, php-format
+msgid "Congratulations, you have completed the course \"%s\"."
+msgstr "Félicitations, vous avez terminé le cours « %s »."
+
+#: inc/api/push.php:1088
+msgid "Congratulations, you have completed a course."
+msgstr "Félicitations, vous avez terminé un cours."
+
+#: inc/api/push.php:1110
+msgid "Lesson completed"
+msgstr "Leçon terminée"
+
+#: inc/api/push.php:1112
+#, php-format
+msgid "You have completed the lesson \"%s\"."
+msgstr "Vous avez terminé la leçon « %s »."
+
+#: inc/api/push.php:1113
+msgid "You have completed a lesson."
+msgstr "Vous avez terminé une leçon."
+
+#: inc/api/push.php:1137
+msgid "Level up"
+msgstr "Nouveau niveau"
+
+#: inc/api/push.php:1139
+#, php-format
+msgid "Congratulations, you have reached level \"%s\"."
+msgstr "Félicitations, vous avez atteint le niveau « %s »."
+
+#: inc/api/push.php:1140
+msgid "Congratulations, you have reached a new level."
+msgstr "Félicitations, tu as atteint un nouveau niveau."
 
 #: inc/api/read_enhanced.php:153
 msgid "Push notifications are disabled."
@@ -2607,8 +2723,8 @@ msgstr "Les notifications push sont désactivées."
 msgid "Enable push notifications"
 msgstr "Activer les notifications push"
 
-#: inc/api/read_enhanced.php:173 inc/functions/shortcodes.php:645
-#: inc/functions/shortcodes.php:1241
+#: inc/api/read_enhanced.php:173 inc/functions/shortcodes.php:646
+#: inc/functions/shortcodes.php:1242
 msgid "Settings saved"
 msgstr "Réglages enregistrés"
 
@@ -2616,12 +2732,12 @@ msgstr "Réglages enregistrés"
 msgid "Subscriptions"
 msgstr "Abonnements"
 
-#: inc/api/read_enhanced.php:202 inc/functions/shortcodes.php:711
-#: inc/functions/shortcodes.php:1319
+#: inc/api/read_enhanced.php:202 inc/functions/shortcodes.php:712
+#: inc/functions/shortcodes.php:1320
 msgid "Save"
 msgstr "Enregistrer"
 
-#: inc/common/admin-bar.php:34 inc/functions/shortcodes.php:645
+#: inc/common/admin-bar.php:34 inc/functions/shortcodes.php:646
 msgid "Push notification"
 msgstr "Notification Push"
 
@@ -2637,8 +2753,8 @@ msgstr "Toutes les 60 secondes"
 msgid "Ok"
 msgstr "Ok"
 
-#: inc/functions/appify.php:307 inc/functions/shortcodes.php:556
-#: inc/functions/shortcodes.php:732 themes/wpappninja-full/footer.php:23
+#: inc/functions/appify.php:307 inc/functions/shortcodes.php:557
+#: inc/functions/shortcodes.php:733 themes/wpappninja-full/footer.php:23
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2872,7 +2988,7 @@ msgid "Continue"
 msgstr "Continuer"
 
 #: inc/functions/menu.php:194 inc/functions/menu.php:204
-#: inc/functions/shortcodes.php:1192
+#: inc/functions/shortcodes.php:1193
 msgid "Scan code"
 msgstr "Scan code"
 
@@ -2999,8 +3115,8 @@ msgstr ""
 msgid "Request successful"
 msgstr "Requête réussie"
 
-#: inc/functions/shortcodes.php:214 inc/functions/shortcodes.php:362
-#: inc/functions/shortcodes.php:439
+#: inc/functions/shortcodes.php:214 inc/functions/shortcodes.php:363
+#: inc/functions/shortcodes.php:440
 msgid "Register"
 msgstr "S’inscrire"
 
@@ -3012,77 +3128,77 @@ msgstr "Compte créé avec succès."
 msgid "You are now connected"
 msgstr "Vous êtes à présent connecté"
 
-#: inc/functions/shortcodes.php:337
+#: inc/functions/shortcodes.php:338
 msgid "Email and password are both required"
 msgstr "E-mail et mot de passe sont tous deux requis"
 
-#: inc/functions/shortcodes.php:338
+#: inc/functions/shortcodes.php:339
 msgid "Password is incorrect"
 msgstr "Le mot de passe est incorrect"
 
-#: inc/functions/shortcodes.php:339
+#: inc/functions/shortcodes.php:340
 msgid "Username doesnt exist"
 msgstr "Ce nom d’utilisateur n’existe pas"
 
-#: inc/functions/shortcodes.php:343
+#: inc/functions/shortcodes.php:344
 msgid "Something is wrong"
 msgstr "Il y a une erreur"
 
-#: inc/functions/shortcodes.php:378 inc/functions/shortcodes.php:428
+#: inc/functions/shortcodes.php:379 inc/functions/shortcodes.php:429
 #: themes/wpappninja-full/comments.php:70 themes/wpappninja/comments.php:62
 msgid "Email"
 msgstr "Adresse de messagerie"
 
-#: inc/functions/shortcodes.php:382
+#: inc/functions/shortcodes.php:383
 msgid "Send reset link"
 msgstr "Envoyer le lien de réinitialisation"
 
-#: inc/functions/shortcodes.php:386 inc/functions/shortcodes.php:400
-#: inc/functions/shortcodes.php:445
+#: inc/functions/shortcodes.php:387 inc/functions/shortcodes.php:401
+#: inc/functions/shortcodes.php:446
 msgid "cancel"
 msgstr "annuler"
 
-#: inc/functions/shortcodes.php:398
+#: inc/functions/shortcodes.php:399
 msgid "Password lost?"
 msgstr "Mot de passe perdu?"
 
-#: inc/functions/shortcodes.php:424
+#: inc/functions/shortcodes.php:425
 msgid "Username"
 msgstr "Nom d’utilisateur"
 
-#: inc/functions/shortcodes.php:433
+#: inc/functions/shortcodes.php:434
 msgid "Password"
 msgstr "Mot de passe"
 
-#: inc/functions/shortcodes.php:462 inc/functions/shortcodes.php:464
+#: inc/functions/shortcodes.php:463 inc/functions/shortcodes.php:465
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: inc/functions/shortcodes.php:618
+#: inc/functions/shortcodes.php:619
 msgid "Push settings"
 msgstr "Paramètres Push"
 
-#: inc/functions/shortcodes.php:675
+#: inc/functions/shortcodes.php:676
 msgid "Manage notifications"
 msgstr "Gérer les notifications"
 
-#: inc/functions/shortcodes.php:728
+#: inc/functions/shortcodes.php:729
 msgid "Search"
 msgstr "Recherche"
 
-#: inc/functions/shortcodes.php:1095
+#: inc/functions/shortcodes.php:1096
 msgid "No information for now."
 msgstr "Aucune information pour l’instant."
 
-#: inc/functions/shortcodes.php:1115 themes/wpappninja-full/index.php:79
+#: inc/functions/shortcodes.php:1116 themes/wpappninja-full/index.php:79
 msgid "No result"
 msgstr "Aucun résultat"
 
-#: inc/functions/shortcodes.php:1115 inc/functions/shortcodes.php:1123
+#: inc/functions/shortcodes.php:1116 inc/functions/shortcodes.php:1124
 msgid "Scanner"
 msgstr "Scanner"
 
-#: inc/functions/shortcodes.php:1498
+#: inc/functions/shortcodes.php:1499
 msgid "Configure your app homepage"
 msgstr "Configurez votre page d’accueil"
 
@@ -3232,7 +3348,7 @@ msgstr "Vous devez vous <a href=\"%s\">connecter</a> pour réagir."
 
 #: themes/wpappninja/functions.php:23
 msgid "WPMobile.App (before content)"
-msgstr "WPAPP. NINJA (avant le contenu)"
+msgstr "WPMobile.App (avant le contenu)"
 
 #: themes/wpappninja/functions.php:25
 msgid "Appears as the sidebar on top of the page"
@@ -3240,7 +3356,7 @@ msgstr "Sidebar avant le contenu"
 
 #: themes/wpappninja/functions.php:34
 msgid "WPMobile.App (after content)"
-msgstr "WPAPP. NINJA (après le contenu)"
+msgstr "WPMobile.App (après le contenu)"
 
 #: themes/wpappninja/functions.php:36
 msgid "Appears as the sidebar on bottom of the page"
@@ -3272,9 +3388,6 @@ msgstr "Amauri"
 
 #~ msgid "notification"
 #~ msgstr "notification"
-
-#~ msgid "comment"
-#~ msgstr "commentaire"
 
 #~ msgid "screen"
 #~ msgstr "écran"
@@ -3500,11 +3613,6 @@ msgstr "Amauri"
 #~| msgid "Item number"
 #~ msgid "Invite Members"
 #~ msgstr "Nombre d'éléments"
-
-#, fuzzy
-#~| msgid "The language has been changed"
-#~ msgid "The invite has been sent."
-#~ msgstr "La langue a été modifiée"
 
 #, fuzzy
 #~| msgid "Sended"

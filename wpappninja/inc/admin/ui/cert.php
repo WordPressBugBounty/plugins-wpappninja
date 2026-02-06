@@ -202,9 +202,12 @@ function _wpappninja_display_cert_page() {
 <div class="wpappninja_div" id="pushautomatic" style="display:none">
 
 
+
+
+
 <div class="wpappninja-builder">
 	<div class="wpappninja-builder-left">
-		<?php _e('When a post is published', 'wpappninja');?>
+        📄 <?php _e('When a post is published', 'wpappninja');?>
 	</div>
 	<div class="wpappninja-builder-right">
 
@@ -216,7 +219,7 @@ function _wpappninja_display_cert_page() {
 
 <div class="wpappninja-builder">
 	<div class="wpappninja-builder-left">
-		<?php _e('When a post is published or edited or updated', 'wpappninja');?>
+        📄 <?php _e('When a post is published or edited or updated', 'wpappninja');?>
 	</div>
 	<div class="wpappninja-builder-right">
 
@@ -226,9 +229,47 @@ function _wpappninja_display_cert_page() {
 	<div class="clear"></div>
 </div>
 
+    <?php
+    $selected_cats = get_wpappninja_option('wpmobile_auto_post_cats', array());
+
+    $categories_full = get_categories(array(
+            'taxonomy'   => 'category',
+            'hide_empty' => false,
+    ));
+    ?>
+
+    <div class="wpappninja-builder">
+        <div class="wpappninja-builder-left">
+            <?php _e('📄 Trigger only for these categories', 'wpappninja'); ?>
+        </div>
+        <div class="wpappninja-builder-right">
+            <?php if (!empty($categories_full)) : ?>
+                <div style="max-height: 150px; overflow-y: auto; border: 1px solid #ddd; padding: 8px; border-radius: 4px;">
+                    <?php foreach ($categories_full as $cat) : ?>
+                        <label style="display: block; margin-bottom: 4px;">
+                            <input
+                                    type="checkbox"
+                                    name="wpmobile_auto_post_cats[]"
+                                    value="<?php echo esc_attr($cat->term_id); ?>"
+                                    <?php checked(in_array($cat->term_id, $selected_cats)); ?>
+                            />
+                            <?php echo esc_html($cat->name); ?>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+                <small style="color:#666;">
+                    <?php _e('If no category is selected, notifications will be sent for all posts.', 'wpappninja'); ?>
+                </small>
+            <?php else : ?>
+                <em><?php _e('No categories found.', 'wpappninja'); ?></em>
+            <?php endif; ?>
+        </div>
+        <div class="clear"></div>
+    </div>
+
 <div class="wpappninja-builder">
 	<div class="wpappninja-builder-left">
-		<?php _e('When a WooCommerce order status change', 'wpappninja');?>
+		🛒 <?php _e('When a WooCommerce order status change', 'wpappninja');?>
 	</div>
 	<div class="wpappninja-builder-right">
 
@@ -240,7 +281,19 @@ function _wpappninja_display_cert_page() {
 
     <div class="wpappninja-builder">
         <div class="wpappninja-builder-left">
-			<?php _e('When a Better Messages notification is triggered', 'wpappninja');?>
+            📖 <?php _e('When a Fluent Community notification is received', 'wpappninja');?>
+        </div>
+        <div class="wpappninja-builder-right">
+
+            <select name="wpmobile_auto_fc"><option value="1"><?php _e('Yes', 'wpappninja');?></option><option value="0" <?php if (get_wpappninja_option('wpmobile_auto_fc', '0') == '0'){echo 'selected';}?>><?php _e('No', 'wpappninja');?></option></select>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="wpappninja-builder">
+        <div class="wpappninja-builder-left">
+			💬 <?php _e('When a Better Messages notification is triggered', 'wpappninja');?>
         </div>
         <div class="wpappninja-builder-right">
 
@@ -252,7 +305,7 @@ function _wpappninja_display_cert_page() {
 
 <div class="wpappninja-builder">
 	<div class="wpappninja-builder-left">
-		<?php _e('When a BuddyPress notification is sent', 'wpappninja');?>
+		👥 <?php _e('When a BuddyPress notification is sent', 'wpappninja');?>
 	</div>
 	<div class="wpappninja-builder-right">
 
@@ -265,7 +318,7 @@ function _wpappninja_display_cert_page() {
     
     <div class="wpappninja-builder">
         <div class="wpappninja-builder-left">
-            <?php _e('When a Peepso notification is sent', 'wpappninja');?>
+            👥 <?php _e('When a Peepso notification is sent', 'wpappninja');?>
         </div>
         <div class="wpappninja-builder-right">
 
@@ -276,7 +329,7 @@ function _wpappninja_display_cert_page() {
     </div>
     <div class="wpappninja-builder">
         <div class="wpappninja-builder-left">
-            <?php _e('When a Gravity Form notification is sent', 'wpappninja');?>
+            📋 <?php _e('When a Gravity Form notification is sent', 'wpappninja');?>
         </div>
         <div class="wpappninja-builder-right">
 
@@ -288,7 +341,7 @@ function _wpappninja_display_cert_page() {
 
 <div class="wpappninja-builder">
 	<div class="wpappninja-builder-left">
-		<?php _e('When a mail is sent to an user', 'wpappninja');?>
+		✉️ <?php _e('When a mail is sent to an user', 'wpappninja');?>
 	</div>
 	<div class="wpappninja-builder-right">
 

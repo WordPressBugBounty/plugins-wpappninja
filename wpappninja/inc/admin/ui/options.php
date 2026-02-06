@@ -3607,6 +3607,7 @@ display:none;
 
 
 			<input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[wpmobile_auto_bp]" value="<?php echo get_wpappninja_option('wpmobile_auto_bp', '0');?>" />
+                <input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[wpmobile_auto_fc]" value="<?php echo get_wpappninja_option('wpmobile_auto_fc', '0');?>" />
             <input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[wpmobile_auto_wc]" value="<?php echo get_wpappninja_option('wpmobile_auto_wc', '0');?>" />
             <input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[wpmobile_auto_bm]" value="<?php echo get_wpappninja_option('wpmobile_auto_bm', '0');?>" />
             <input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[wpmobile_auto_peepso]" value="<?php echo get_wpappninja_option('wpmobile_auto_peepso', '0');?>" />
@@ -3617,8 +3618,14 @@ display:none;
 
 
 
-			
-
+                <?php
+                $catsautopost = get_wpappninja_option('wpmobile_auto_post_cats', array());
+                if (!empty($catsautopost)) {
+                    foreach ($catsautopost as $cat_id) {
+                        echo '<input type="hidden" name="'.WPAPPNINJA_SLUG.'[wpmobile_auto_post_cats][]" value="' . esc_attr($cat_id) . '" />';
+                    }
+                }
+                ?>
 
 						<input type="hidden" name="<?php echo WPAPPNINJA_SLUG;?>[listnb]" value="<?php echo get_wpappninja_option('listnb', '10');?>" />
 

@@ -229,7 +229,7 @@ function wpmobileapp_create_account() {
 add_filter( 'authenticate', 'wpmobile_username_password', 1, 3);
 function wpmobile_username_password( $user, $username, $password ) {
 
-	if (is_wpappninja()) {
+	if (is_wpappninja() && $_GET['reason'] != "both_empty") {
 
         $redirect_to = wpappninja_cache_friendly(wpmobile_weglot(wpappninja_get_home()));
         if (get_wpappninja_option('speed') == '1' && get_wpappninja_option('speed_trad') == 'manual') {
@@ -285,9 +285,10 @@ function wpmobile_redirect_after_login( $redirect_to, $requested_redirect_to, $u
             if (get_wpappninja_option('speed') == '1' && get_wpappninja_option('speed_trad') == 'manual') {
                 $redirect_to = wpappninja_translate(wpappninja_get_home());
             }
-            
+
+            if (!isset($_GET['reason']) OR $_GET['reason'] != $error_type) {
             wp_redirect($redirect_to . '?wpapp_shortcode=wpapp_login&login=fail&reason=' . $error_type );
-        exit;
+        exit;}
     }
         if (isset($user->roles) && is_array($user->roles)) {
 
@@ -410,8 +411,8 @@ function wpapp_login() {
     	        <div class="wpmobile-login-avatar">';
         echo get_avatar( "", 90 );
 
-    $__user = ( isset($_POST['uname']) ? $_POST['uname'] : '' );
-    $__email = ( isset($_POST['uemail']) ? $_POST['uemail'] : '' );
+            $__user  = isset($_POST['uname'])  ? sanitize_text_field($_POST['uname'])  : '';
+            $__email = isset($_POST['uemail']) ? sanitize_email($_POST['uemail']) : '';
 
 
         echo '</div><br/>
@@ -422,11 +423,11 @@ function wpapp_login() {
 			'.wp_nonce_field( 'registerwpmobileapp' ).'
 			<p class="login-username">
 				<label for="uanme">'.__('Username', 'wpappninja').'</label>
-				<input style="width: 100%;padding: 10px;background: #fff;border: 1px solid #eee;" type="text" name="uname" class="input input-with-value" value="'.$__user.'" size="20">
+				<input style="width: 100%;padding: 10px;background: #fff;border: 1px solid #eee;" type="text" name="uname" class="input input-with-value" value="'.esc_attr($__user).'" size="20">
 			</p>			
 			<p class="login-username">
 				<label for="uemail">'.__('Email', 'wpappninja').'</label>
-				<input style="width: 100%;padding: 10px;background: #fff;border: 1px solid #eee;" type="email" name="uemail" class="input input-with-value" value="'.$__email.'" size="20">
+				<input style="width: 100%;padding: 10px;background: #fff;border: 1px solid #eee;" type="email" name="uemail" class="input input-with-value" value="'.esc_attr($__email).'" size="20">
 			</p>
 
 			<p class="login-username">
@@ -1119,8 +1120,10 @@ function wpmobile_qrcode_2() {
                if (result.startsWith("http")) {
                                                                       wpmobileappStartLoading();
                           document.location = result;
+                          return;
                } else {
                           app.dialog.alert(result, "'.__('Scanner', 'wpappninja').'");
+                          return;
                }
     }
     </script>';

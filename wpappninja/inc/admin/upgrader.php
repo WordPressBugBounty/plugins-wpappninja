@@ -129,7 +129,7 @@ function _wpappninja_first_install() {
 			'customcss' => '',
 			'customcss_website' => '',
 			'all_link_browser' => '0',
-			'wpappninja_main_theme' => 'WPMobile.App',
+			'wpappninja_main_theme' => 'No theme',
 			'speed_notheme' => '0',
 			'nospeed_notheme' => '0',
 			'wpappninja_042018' => true,

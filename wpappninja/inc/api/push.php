@@ -22,7 +22,7 @@ function wpmobile_getAuthConfig() {
 }
 function wpmobile_getOauthToken() {
 
-	if (isset($_GET['pagename']) == 'googlebearer') {
+	if (get_wpappninja_option('debugpush', '0') === '1' && $_GET['pagename'] == 'wpappninja' && $_GET['type'] == 'googlebearer') {
 		echo 'OPTION: '. get_option('wpmobile_firebase_config', '');
 		echo "\r\n";
 		echo "\r\n";
@@ -34,7 +34,7 @@ function wpmobile_getOauthToken() {
     
     $authConfigString = @file_get_contents(get_option('wpmobile_firebase_config', ''));
 
-	if (isset($_GET['pagename']) == 'googlebearer') {
+	if (get_wpappninja_option('debugpush', '0') === '1' && $_GET['pagename'] == 'wpappninja' && $_GET['type'] == 'googlebearer') {
 		echo 'FILE: '. $authConfigString;
 		echo "\r\n";
 		echo "\r\n";
@@ -86,12 +86,12 @@ function wpmobile_getOauthToken() {
 
 	if (is_wp_error($response)) {
 		$responseText = false;
-		error_log('Erreur WP_HTTP: ' . $response->get_error_message());
+		//error_log('Erreur WP_HTTP: ' . $response->get_error_message());
 	} else {
 		$responseText = wp_remote_retrieve_body($response);
 	}
 
-	if (isset($_GET['pagename']) == 'googlebearer') {
+	if (get_wpappninja_option('debugpush', '0') === '1' && $_GET['pagename'] == 'wpappninja' && $_GET['type'] == 'googlebearer') {
 		echo 'RESPONSE: '. $responseText;
 		echo "\r\n";
 		echo "\r\n";
@@ -501,6 +501,17 @@ function wpmobileapp_send_push_post($post) {
 				$already_sent = get_option('wpmobile_auto_push_sent', array());
 
 				if (!in_array($ID, $already_sent)) {
+
+					$allowed_cats = get_wpappninja_option('wpmobile_auto_post_cats', array());
+
+					if (!empty($allowed_cats)) {
+						$post_cats = wp_get_post_categories($ID);
+
+						if (empty(array_intersect($allowed_cats, $post_cats))) {
+							return;
+						}
+					}
+
 					$already_sent[] = $ID;
 					update_option('wpmobile_auto_push_sent', $already_sent);
 					wpmobileapp_push($title, $content, $image, $permalink, 'all', '', '');
@@ -532,6 +543,16 @@ function wpmobileapp_send_push_post_update($ID, $post) {
 				$already_sent = get_option('wpmobile_auto_push_sent', array());
                 $already_sent[] = $ID;
                 update_option('wpmobile_auto_push_sent', $already_sent);
+
+				$allowed_cats = get_wpappninja_option('wpmobile_auto_post_cats', array());
+
+				if (!empty($allowed_cats)) {
+					$post_cats = wp_get_post_categories($ID);
+
+					if (empty(array_intersect($allowed_cats, $post_cats))) {
+						return;
+					}
+				}
 
                 wpmobileapp_push($title, $content, $image, $permalink, 'all', '', '');
 			}
@@ -809,4 +830,312 @@ add_action('peepso_friends_requests_after_add', function($from_id, $to_id) {
 
 }, 10, 2);
 
+if ( ! function_exists( 'wpmobileapp_fc_get_permalink_from_object' ) ) {
+	function wpmobileapp_fc_get_permalink_from_object( $object ) {
+		if ( ! is_object( $object ) ) {
+			return '';
+		}
 
+		if ( method_exists( $object, 'getPermalink' ) ) {
+			try {
+				$link = $object->getPermalink();
+				if ( ! empty( $link ) ) {
+					return $link;
+				}
+			} catch ( Exception $e ) {
+			}
+		}
+
+		if ( isset( $object->permalink ) && ! empty( $object->permalink ) ) {
+			return $object->permalink;
+		}
+
+		if ( isset( $object->url ) && ! empty( $object->url ) ) {
+			return $object->url;
+		}
+
+		if ( isset( $object->ID ) && $object->ID ) {
+			$post_link = get_permalink( $object->ID );
+			if ( $post_link ) {
+				return $post_link;
+			}
+		}
+
+		if ( isset( $object->id ) && $object->id ) {
+			$post_link = get_permalink( $object->id );
+			if ( $post_link ) {
+				return $post_link;
+			}
+		}
+
+		return '';
+	}
+}
+
+if ( ! function_exists( 'wpmobileapp_fc_push' ) ) {
+	function wpmobileapp_fc_push( $user_id, $title, $message, $link = '' ) {
+
+		if ( get_wpappninja_option( 'wpmobile_auto_fc' ) != '1' ) {
+			return;
+		}
+
+		$user_id = (int) $user_id;
+		if ( ! $user_id ) {
+			return;
+		}
+
+		$user = get_user_by( 'id', $user_id );
+		if ( ! $user || empty( $user->user_email ) || empty( $title ) ) {
+			return;
+		}
+
+		$image = ' ';
+
+		wpmobileapp_push(
+			$title,
+			$message,
+			$image,
+			$link,
+			$lang_2letters = 'all',
+			$send_timestamp = '',
+			$user->user_email
+		);
+	}
+}
+
+add_action( 'fluent_community/space/joined', 'wpmobileapp_fc_space_joined', 10, 3 );
+function wpmobileapp_fc_space_joined( $space, $user_id, $by ) {
+
+	$space_name = '';
+	if ( is_object( $space ) ) {
+		if ( isset( $space->title ) ) {
+			$space_name = $space->title;
+		} elseif ( isset( $space->name ) ) {
+			$space_name = $space->name;
+		}
+	}
+
+	$title = __( 'New space joined', 'wpappninja' );
+	$message = $space_name
+		? sprintf( __( 'You joined the space "%s".', 'wpappninja' ), $space_name )
+		: __( 'You joined a new space.', 'wpappninja' );
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $space );
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+/**
+ * SPACE: join requested
+ */
+add_action( 'fluent_community/space/join_requested', 'wpmobileapp_fc_space_join_requested', 10, 2 );
+function wpmobileapp_fc_space_join_requested( $space, $user_id ) {
+
+	$space_name = '';
+	if ( is_object( $space ) ) {
+		if ( isset( $space->title ) ) {
+			$space_name = $space->title;
+		} elseif ( isset( $space->name ) ) {
+			$space_name = $space->name;
+		}
+	}
+
+	$title = __( 'Join request sent', 'wpappninja' );
+	$message = $space_name
+		? sprintf( __( 'Your request to join the space "%s" has been sent.', 'wpappninja' ), $space_name )
+		: __( 'Your request to join the space has been sent.', 'wpappninja' );
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $space );
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+/**
+ * COMMENTS: new comment + mentions in a comment
+ */
+add_action( 'fluent_community/comment_added', 'wpmobileapp_fc_comment_added', 10, 3 );
+function wpmobileapp_fc_comment_added( $comment, $feed, $mentioned_users ) {
+
+	if ( is_object( $feed ) && isset( $feed->user_id ) ) {
+
+		$author_id        = (int) $feed->user_id;
+		$comment_author_id = 0;
+
+		if ( is_object( $comment ) && isset( $comment->user_id ) ) {
+			$comment_author_id = (int) $comment->user_id;
+		}
+
+		if ( $author_id && $author_id !== $comment_author_id ) {
+			$title   = __( 'New comment', 'wpappninja' );
+			$message = __( 'Someone commented on your post.', 'wpappninja' );
+
+			$link = wpmobileapp_fc_get_permalink_from_object( $feed );
+
+			wpmobileapp_fc_push( $author_id, $title, $message, $link );
+		}
+	}
+
+	if ( ! empty( $mentioned_users ) && is_iterable( $mentioned_users ) ) {
+
+		foreach ( $mentioned_users as $mentioned ) {
+
+			$mentioned_id = 0;
+
+			if ( is_object( $mentioned ) ) {
+				if ( isset( $mentioned->user_id ) ) {
+					$mentioned_id = (int) $mentioned->user_id;
+				} elseif ( isset( $mentioned->ID ) ) {
+					$mentioned_id = (int) $mentioned->ID;
+				}
+			} elseif ( is_numeric( $mentioned ) ) {
+				$mentioned_id = (int) $mentioned;
+			}
+
+			if ( $mentioned_id ) {
+				$title   = __( 'You were mentioned', 'wpappninja' );
+				$message = __( 'You were mentioned in a comment.', 'wpappninja' );
+
+				$link = wpmobileapp_fc_get_permalink_from_object( $feed );
+
+				wpmobileapp_fc_push( $mentioned_id, $title, $message, $link );
+			}
+		}
+	}
+}
+
+/**
+ * FEED: mention in a feed
+ */
+add_action( 'fluent_community/feed_mentioned', 'wpmobileapp_fc_feed_mentioned', 10, 2 );
+function wpmobileapp_fc_feed_mentioned( $feed, $mentioned_users ) {
+
+	if ( empty( $mentioned_users ) || ! is_iterable( $mentioned_users ) ) {
+		return;
+	}
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $feed );
+
+	foreach ( $mentioned_users as $mentioned ) {
+
+		$mentioned_id = 0;
+
+		if ( is_object( $mentioned ) ) {
+			if ( isset( $mentioned->user_id ) ) {
+				$mentioned_id = (int) $mentioned->user_id;
+			} elseif ( isset( $mentioned->ID ) ) {
+				$mentioned_id = (int) $mentioned->ID;
+			}
+		} elseif ( is_numeric( $mentioned ) ) {
+			$mentioned_id = (int) $mentioned;
+		}
+
+		if ( $mentioned_id ) {
+			$title   = __( 'You were mentioned', 'wpappninja' );
+			$message = __( 'You were mentioned in a post.', 'wpappninja' );
+
+			wpmobileapp_fc_push( $mentioned_id, $title, $message, $link );
+		}
+	}
+}
+
+/**
+ * COURSE: user enrolled in a course
+ */
+add_action( 'fluent_community/course/enrolled', 'wpmobileapp_fc_course_enrolled', 10, 3 );
+function wpmobileapp_fc_course_enrolled( $course, $user_id, $by ) {
+
+	$course_title = '';
+	if ( is_object( $course ) ) {
+		if ( isset( $course->title ) ) {
+			$course_title = $course->title;
+		} elseif ( isset( $course->post_title ) ) {
+			$course_title = $course->post_title;
+		}
+	}
+
+	$title = __( 'Course enrolled', 'wpappninja' );
+	$message = $course_title
+		? sprintf( __( 'You are now enrolled in the course "%s".', 'wpappninja' ), $course_title )
+		: __( 'You are now enrolled in a course.', 'wpappninja' );
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $course );
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+/**
+ * COURSE: course completed
+ */
+add_action( 'fluent_community/course/completed', 'wpmobileapp_fc_course_completed', 10, 2 );
+function wpmobileapp_fc_course_completed( $course, $user_id ) {
+
+	$course_title = '';
+	if ( is_object( $course ) ) {
+		if ( isset( $course->title ) ) {
+			$course_title = $course->title;
+		} elseif ( isset( $course->post_title ) ) {
+			$course_title = $course->post_title;
+		}
+	}
+
+	$title = __( 'Course completed', 'wpappninja' );
+	$message = $course_title
+		? sprintf( __( 'Congratulations, you have completed the course "%s".', 'wpappninja' ), $course_title )
+		: __( 'Congratulations, you have completed a course.', 'wpappninja' );
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $course );
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+/**
+ * COURSE: lesson completed
+ */
+add_action( 'fluent_community/course/lesson_completed', 'wpmobileapp_fc_lesson_completed', 10, 2 );
+function wpmobileapp_fc_lesson_completed( $lesson, $user_id ) {
+
+	$lesson_title = '';
+	if ( is_object( $lesson ) ) {
+		if ( isset( $lesson->title ) ) {
+			$lesson_title = $lesson->title;
+		} elseif ( isset( $lesson->post_title ) ) {
+			$lesson_title = $lesson->post_title;
+		}
+	}
+
+	$title = __( 'Lesson completed', 'wpappninja' );
+	$message = $lesson_title
+		? sprintf( __( 'You have completed the lesson "%s".', 'wpappninja' ), $lesson_title )
+		: __( 'You have completed a lesson.', 'wpappninja' );
+
+	$link = wpmobileapp_fc_get_permalink_from_object( $lesson );
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+/**
+ * LEADERBOARD: user level upgraded
+ */
+add_action( 'fluent_community/user_level_upgraded', 'wpmobileapp_fc_user_level_upgraded', 10, 3 );
+function wpmobileapp_fc_user_level_upgraded( $xprofile, $new_level, $old_level ) {
+
+	if ( ! is_object( $xprofile ) || ! isset( $xprofile->user_id ) ) {
+		return;
+	}
+
+	$user_id = (int) $xprofile->user_id;
+
+	$new_level_name = '';
+	if ( is_array( $new_level ) && isset( $new_level['title'] ) ) {
+		$new_level_name = $new_level['title'];
+	}
+
+	$title = __( 'Level up', 'wpappninja' );
+	$message = $new_level_name
+		? sprintf( __( 'Congratulations, you have reached level "%s".', 'wpappninja' ), $new_level_name )
+		: __( 'Congratulations, you have reached a new level.', 'wpappninja' );
+
+	$link = '';
+
+	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}

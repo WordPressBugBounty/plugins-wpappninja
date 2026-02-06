@@ -195,7 +195,7 @@ function wpappninja_theme_styles() {
 }
 
 /** WOOCOMMERCE **/
-add_filter('woocommerce_get_catalog_ordering_args', 'wpappninja_woocommerce_catalog_orderby');
+//add_filter('woocommerce_get_catalog_ordering_args', 'wpappninja_woocommerce_catalog_orderby');
 function wpappninja_woocommerce_catalog_orderby( $args ) {
     $args['orderby'] = get_wpappninja_option('orderby_list', 'post_date');
     $args['order'] = get_wpappninja_option('order_list', 'desc'); 

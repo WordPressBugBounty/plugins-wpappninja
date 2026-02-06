@@ -283,6 +283,12 @@ function _wpappninja_display_push_page() {
 			update_option(WPAPPNINJA_SLUG, $option);
 		}
 
+        if (isset($_POST['wpmobile_auto_fc'])) {
+            $option = get_option(WPAPPNINJA_SLUG);
+            $option['wpmobile_auto_fc'] = $_POST['wpmobile_auto_fc'];
+            update_option(WPAPPNINJA_SLUG, $option);
+        }
+
 
 		if (isset($_POST['wpmobile_auto_bm'])) {
 			$option = get_option(WPAPPNINJA_SLUG);
@@ -322,6 +328,12 @@ function _wpappninja_display_push_page() {
 			$option['wpmobile_auto_post_update'] = $_POST['wpmobile_auto_post_update'];
 			update_option(WPAPPNINJA_SLUG, $option);
 		}
+
+        if (isset($_POST['wpmobile_auto_post_cats'])) {
+            $option = get_option(WPAPPNINJA_SLUG);
+            $option['wpmobile_auto_post_cats'] = array_map('intval', $_POST['wpmobile_auto_post_cats']);
+            update_option(WPAPPNINJA_SLUG, $option);
+        }
 
 		wpappninja_clear_cache();
 	}

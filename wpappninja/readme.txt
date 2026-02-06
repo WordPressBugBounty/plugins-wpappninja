@@ -2,7 +2,7 @@
 Contributors: amauric
 Tags: mobile app, android app, ios app, android, ios
 Requires at least: 3.7.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -11,6 +11,23 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
+
+= 11.75 =
+* Add Fluent Community push notifications
+
+= 11.74 =
+* Add an option to select categories for the auto push feature
+
+= 11.73 =
+* Change the default theme
+* Fix a redirect issue after login
+* Fix a sort issue on some apps
+
+= 11.72 =
+* Fix XSS on the login form
+
+= 11.71 =
+* Fix debug mode
 
 = 11.70 =
 * Switch from file_get_contents to wp_remote_get
@@ -289,7 +306,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = Android and iOS mobile app =
 
 * 💳 **LIFETIME LICENCE** - No subscription, no hidden fees.
-*Android 99€ // iOS 99€ // Android + iOS 189€*
+*Android 129€ // iOS 129€ // Android + iOS 239€*
 
 * 🎉 **FREE TEST** - You can test your mobile app [with the demo app](https://wpmobile.app/en/test-my-app/).
 

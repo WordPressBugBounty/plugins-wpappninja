@@ -28,7 +28,7 @@ function wpmobileapp_add_jquery() {
 }
 
 /* LISTS OPTIONS */
-add_action( 'pre_get_posts', 'wpmobileapp_pre_get_posts' );
+//add_action( 'pre_get_posts', 'wpmobileapp_pre_get_posts' );
 function wpmobileapp_pre_get_posts($query) {
 
 	if (is_wpappninja() && !is_page() && !is_single() && !is_admin() && get_wpappninja_option('speed') == '1' && get_wpappninja_option('appify') != '1') {
@@ -52,7 +52,7 @@ function wpmobileapp_pre_get_posts($query) {
 }
 
 /* WOOCOMMERCE */
-add_filter('woocommerce_get_catalog_ordering_args', 'wpmobileapp_woocommerce_catalog_orderby');
+//add_filter('woocommerce_get_catalog_ordering_args', 'wpmobileapp_woocommerce_catalog_orderby');
 function wpmobileapp_woocommerce_catalog_orderby( $args ) {
 
 	if (is_wpappninja()) {

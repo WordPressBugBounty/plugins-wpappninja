@@ -1130,6 +1130,14 @@ jQuery('.page.page-current').attr('style', '');
 	
 	jQuery(document).ajaxComplete(function() {
 
+        jQuery('a[href*="file_download"]').each(function () {
+            var href = jQuery(this).attr("href");
+            if (href && href.indexOf("wpmobileexternal") < 0) {
+                href += (href.indexOf('?') !== -1 ? "&" : "?") + "wpmobileexternal=true";
+                jQuery(this).attr("href", href);
+            }
+        });
+
         jQuery('img.loading').removeClass('loading');
 
         jQuery(document).ajaxComplete(function() {
@@ -1166,6 +1174,8 @@ jQuery('.page.page-current').attr('style', '');
             });
         }, 900);
 	});
+
+
 	/*jQuery(function() {
     	jQuery('html.ios').addClass('with-statusbar');
     	setTimeout(function() {jQuery('html.ios').addClass('with-statusbar');}, 300);

@@ -2,7 +2,7 @@
 Contributors: amauric
 Tags: mobile app, android app, ios app, android, ios
 Requires at least: 3.7.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -11,6 +11,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
+
+= 11.76 =
+* Update DE locale
+* Fix some download links
+* Bump to WP v7.0
 
 = 11.75 =
 * Add Fluent Community push notifications

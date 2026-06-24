@@ -352,7 +352,7 @@ function wpappninja_push_register() {
 		if (isset($registered[0]) && $registered[0]->device_id != "") {
 			$wpdb->query($wpdb->prepare("UPDATE {$wpdb->prefix}wpappninja_ids SET `registration_id` = %s, `lang` = %s WHERE `device_id` = %s", $id, $lang, $device));
 		} else {
-			$wpdb->query($wpdb->prepare("INSERT INTO {$wpdb->prefix}wpappninja_ids (`registration_id`, `device_id`, `lang`) VALUES (%s, %s, %s)", $id, $device, $lang));
+			$wpdb->query($wpdb->prepare("INSERT IGNORE INTO {$wpdb->prefix}wpappninja_ids (`registration_id`, `device_id`, `lang`) VALUES (%s, %s, %s)", $id, $device, $lang));
 		}
 	}
  

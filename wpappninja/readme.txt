@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.77 =
+* Fix a database error on duplicate entry
+
 = 11.76 =
 * Update DE locale
 * Fix some download links

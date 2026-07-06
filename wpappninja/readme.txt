@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.78 =
+* Fix Broken Access Control
+
 = 11.77 =
 * Fix a database error on duplicate entry
 

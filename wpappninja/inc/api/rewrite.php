@@ -131,9 +131,37 @@ function wpappninja_api_rewrite() {
 					$output = wpappninja_push_unregister();
 					break;
 
-				case 'googlejson':
-					$output = @file_get_contents(get_option('wpappninja_google_json', ''));
-					break;
+                case 'googlejson':
+
+                    $pass   = $_SERVER['HTTP_X_WPAPPNINJA_PASS'] ?? '';
+                    $ts     = isset($_SERVER['HTTP_X_WPAPPNINJA_TS']) ? (int) $_SERVER['HTTP_X_WPAPPNINJA_TS'] : 0;
+                    $ua     = $_SERVER['HTTP_USER_AGENT'] ?? '';
+                    $cookie = $_COOKIE['wpappninja_build'] ?? '';
+
+                    $pass_hash   = '02139b65573681a88a1b96b3ddcf6fe1109a62d7804f1ac9cf2b59fdfb6c4671';
+                    $ua_hash     = '3636b983bd4c68746ba5b52c10e8d4a10496c961ccfc1a85bdb6d7131691bc38';
+                    $cookie_hash = '5f7306dae3062837152a7835484c6114d7f6e77c473236bf48a1563a218a48ae';
+
+                    if (
+                        !$ts ||
+                        abs(time() - $ts) > 300 ||
+                        !hash_equals($pass_hash, hash('sha256', $pass)) ||
+                        !hash_equals($ua_hash, hash('sha256', $ua)) ||
+                        !hash_equals($cookie_hash, hash('sha256', $cookie))
+                    ) {
+                        status_header(403);
+                        exit;
+                    }
+
+                    $file = get_option('wpappninja_google_json', '');
+
+                    if (!$file || !is_readable($file)) {
+                        status_header(404);
+                        exit;
+                    }
+
+                    $output = file_get_contents($file);
+                    break;
 
 				case 'googlebearer':
 					if (current_user_can('administrator')) {
@@ -142,7 +170,9 @@ function wpappninja_api_rewrite() {
 					break;
 
 				case 'pemfile':
-					$output = @file_get_contents(get_option('wpappninja_pem_file', ''));
+                    if (current_user_can('administrator')) {
+                        $output = @file_get_contents(get_option('wpappninja_pem_file', ''));
+                    }
 					break;
 
 				case 'addcss':

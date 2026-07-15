@@ -12,6 +12,9 @@ Android and iOS mobile application. Easy setup, free test.
 
 == Changelog ==
 
+= 11.79 =
+* Fix the url to register for notifications
+
 = 11.78 =
 * Fix Broken Access Control
 

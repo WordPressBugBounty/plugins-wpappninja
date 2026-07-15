@@ -1230,7 +1230,7 @@ jQuery('.page.page-current').attr('style', '');
 	function wpmobileappSetToken(identifier, token) {
 
 		// send back to the server the uniqid and token (old post request)
-		jQuery.ajax({url: "<?php echo get_bloginfo('url') . '/';?>/?<?php echo 'uniqid='.uniqid().'&';?>pagename=wpappninja&type=register&wpmobile_sdk2019_id="+identifier+"&wpmobile_sdk2019_token="+token});
+		jQuery.ajax({url: "<?php echo get_bloginfo('url') . '/';?>index.php?<?php echo 'uniqid='.uniqid().'&';?>pagename=wpappninja&type=register&wpmobile_sdk2019_id="+identifier+"&wpmobile_sdk2019_token="+token});
 	}
 
 	jQuery(function() {

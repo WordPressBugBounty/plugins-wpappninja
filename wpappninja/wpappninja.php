@@ -1,12 +1,13 @@
 <?php
 /*
-Plugin Name: WPMobile.App
+Plugin Name: WPMobile.App – Android and iOS App Builder
 Plugin URI: https://wpmobile.app/
-Description: Android and iOS mobile application. Easy setup, free test.
-Version: 11.80
+Description: Turn your WordPress website into an Android and iOS mobile app. No coding required. Free preview and lifetime license.
+Version: 11.81
 Author: Amauri
-Author URI: https://wpmobile.app/
-Licence: GPLv2
+Author URI: https://amauri.io/en/
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: wpappninja
 Domain Path: /languages/
 */
@@ -14,7 +15,7 @@ Domain Path: /languages/
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 // common
-define( 'WPAPPNINJA_VERSION'	 		, '11.80' );
+define( 'WPAPPNINJA_VERSION'	 		, '11.81' );
 define( 'WPAPPNINJA_VERSION_APP'        , '100' );
 
 if (defined('WPAPPNINJA_WHITE_LABEL')) {

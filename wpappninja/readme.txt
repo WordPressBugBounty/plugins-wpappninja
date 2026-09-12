@@ -1,6 +1,6 @@
-=== WPMobile.App ===
+=== WPMobile.App – Android and iOS App Builder ===
 Contributors: amauric
-Tags: mobile app, android app, ios app, android, ios
+Tags: mobile app, android app, ios app, app builder, push notifications
 Requires at least: 3.7.0
 Tested up to: 7.1
 Requires PHP: 5.6
@@ -8,9 +8,171 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Android and iOS mobile application. Easy setup, free test.
+Turn your WordPress website into an Android and iOS mobile app. No coding required. Free preview and lifetime license.
 
-== Changelog ==
+== Description ==
+
+WPMobile.App turns your WordPress website into an Android and iOS mobile app that you can publish on Google Play and the Apple App Store.
+
+Customize your app from your WordPress dashboard, preview it on your phone for free, and purchase a lifetime license when you are ready to publish.
+
+Your app uses your existing website content, with your own branding and unlimited push notifications. No coding required.
+
+[Try your app for free](https://wpmobile.app/en/test-my-app/)
+
+= Your WordPress website, as a mobile app =
+
+Keep managing your content in WordPress. Changes to your website content are reflected in the app, without having to publish a new app version for every new post or page.
+
+WPMobile.App uses a mobile-optimized WebView to display your website, with app features such as push notifications and a custom app icon.
+
+= Customize your app from WordPress =
+
+Set your app name, icon, colors and navigation from your WordPress dashboard.
+
+Your published app carries your own branding, with no WPMobile.App branding or advertising added by me.
+
+= Unlimited push notifications =
+
+Send notifications to bring users back to your app when you publish content, share an announcement or launch a promotion.
+
+* Send push notifications manually.
+* Automatically notify users about new posts.
+* Use your Firebase and Apple accounts for notification delivery.
+* No per-notification fees charged by WPMobile.App.
+
+= App usage statistics =
+
+View app usage statistics directly in WordPress, including installations, popular pages and device types. Statistics are hosted on your website.
+
+= Test before you buy =
+
+Install the plugin and use the free WPMobile.App demo app to preview your website on your phone.
+
+Check your design, navigation and key pages before purchasing a license.
+
+[Preview your mobile app](https://wpmobile.app/en/test-my-app/)
+
+= One-time payment, lifetime license =
+
+The WordPress plugin is free to install. A paid WPMobile.App license is required to generate your own app for publication.
+
+* Android: EUR 129.
+* iOS: EUR 129.
+* Android + iOS: EUR 239.
+
+Prices exclude VAT. Each option is a lifetime license with a one-time payment and no WPMobile.App subscription.
+
+Apple and Google developer accounts are required for store publication. Their registration or membership fees are separate from the WPMobile.App license.
+
+= Guided publication =
+
+Generate your app build from WPMobile.App, then follow the step-by-step instructions to submit it using your own Google Play or Apple developer account.
+
+You do not need to install Android Studio or Xcode to generate your build. Store approval remains subject to Apple and Google's review requirements.
+
+= Direct support from the developer =
+
+Need help configuring your app or preparing it for publication? Get support directly from Amauri, the developer of WPMobile.App.
+
+[Documentation and support](https://wpmobile.app/en/help/)
+
+== Installation ==
+
+1. In your WordPress dashboard, go to Plugins > Add New Plugin.
+2. Search for WPMobile.App.
+3. Install and activate the plugin.
+4. Open the WPMobile.App settings.
+5. Customize your app and preview it using the free demo app.
+6. When you are ready to publish, purchase a license and follow the publication instructions.
+
+You can also upload the wpappninja folder to /wp-content/plugins/ and activate the plugin from the Plugins screen.
+
+== Frequently Asked Questions ==
+
+= Is WPMobile.App free? =
+
+The WordPress plugin is free to install, and you can preview your app using the free WPMobile.App demo app.
+
+A paid license is required to generate your own Android or iOS app for publication.
+
+= How much does it cost? =
+
+A lifetime license costs EUR 129 for Android, EUR 129 for iOS, or EUR 239 for both platforms, excluding VAT.
+
+There is no WPMobile.App subscription. Apple and Google developer account fees are separate.
+
+= Can I test my app before buying? =
+
+Yes. Install the plugin, configure your app and open your website in the WPMobile.App demo app on your phone.
+
+This lets you check the result before purchasing a license.
+
+[Get the demo app](https://wpmobile.app/en/test-my-app/)
+
+= Do I need coding skills? =
+
+No. You configure your app from your WordPress dashboard and follow the instructions to generate and publish it.
+
+You do not need to use Android Studio or Xcode to generate your app build.
+
+= Is this a native app or a WebView app? =
+
+WPMobile.App creates an app that displays your WordPress website through a mobile-optimized WebView.
+
+Users can install it from Google Play or the Apple App Store. It includes app features such as push notifications, a custom icon and your own branding.
+
+= Does it work with WooCommerce? =
+
+WPMobile.App supports WooCommerce websites. Use the free demo app to check your product pages, cart and checkout with your theme, extensions and payment methods before purchasing.
+
+= Will my website content stay synchronized? =
+
+Yes. The app uses your WordPress website content, so you continue managing your posts, pages and products in WordPress.
+
+Content changes do not require a new store submission. Changes to the app itself may require generating and submitting an updated build.
+
+= Can I send push notifications? =
+
+Yes. WPMobile.App supports manual push notifications and automatic notifications for new posts.
+
+Notifications use your Firebase and Apple accounts, with no per-notification fees charged by WPMobile.App.
+
+= Do I need my own Apple and Google developer accounts? =
+
+Yes. To publish on Google Play, you need a Google Play developer account. To publish on the Apple App Store, you need an Apple developer account.
+
+The accounts belong to you, and their fees are paid separately to Google and Apple.
+
+= Is publication on the stores guaranteed? =
+
+No. WPMobile.App provides the app build and publication instructions, but Apple and Google review submissions independently.
+
+Your app and its content must meet the requirements of each store.
+
+= Will my app display WPMobile.App branding? =
+
+No. Your published app uses your name, icon and branding. WPMobile.App does not add its own branding or advertisements to it.
+
+= Where can I get help? =
+
+See the [documentation and support resources](https://wpmobile.app/en/help/) for setup instructions and help from the developer.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage, and handle security vulnerabilities.
+
+[Report a security vulnerability](https://patchstack.com/database/vdp/wpappninja)
+
+== Screenshots ==
+
+1. Generate and update your Android and iOS app builds from your WPMobile.App account.
+2. Track Android and iOS installations, app activity, popular content and user languages.
+3. Compose push notifications with images and links, and choose your target audience.
+4. Manage your mobile app settings, branding and navigation from your WordPress dashboard.
+
+== Changelog === 11.81 =
+* Update Readme
 
 = 11.80 =
 * Bump versions
@@ -309,48 +471,3 @@ Android and iOS mobile application. Easy setup, free test.
 * Fix double tap needed on dialog form
 * Fix positionning of alert on ios
 * Fix title bar color and size
-
-## Frequently Asked Questions
-
-[Common questions and support documentation](https://wpmobile.app/en/help/)
-
-**How can I report security bugs?**
-You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage, and handle any security vulnerabilities.
-[Report a security vulnerability](https://patchstack.com/database/vdp/wpappninja)
-
-== Description ==
-
-= Android and iOS mobile app =
-
-* 💳 **LIFETIME LICENCE** - No subscription, no hidden fees.
-*Android 129€ // iOS 129€ // Android + iOS 239€*
-
-* 🎉 **FREE TEST** - You can test your mobile app [with the demo app](https://wpmobile.app/en/test-my-app/).
-
-* 🖌 **CUSTOMIZATION** - No mention of our brand or advertisement, the mobile app is white-labeled.
-
-* 📲 **GREAT COMPATIBILITY** - The mobile apps is compatible with smartphones and tablets, always up-to-date.
-
-* 👌 **VERY EASY PUBLISH** - I take care of all the technical work, no software to download or complicated manipulation to do.
-
-* 💬 **SUPPORT TEAM** - I'm here to help and answer all your requests as quickly as possible.
-
-* 👍 **AUTOMATIC APP UPDATE** - When new content is released, the application is automatically updated.
-
-* 📢 **NOTIFICATIONS** - Unlimited push notification: manually or with automated push.
-
-* 📈 **REAL-TIME STATISTICS** - Stats about the app usage, all statistics are real-time and hosted on your site.
-
-== Installation ==
-
-= WordPress Admin Method =
-1. Go to you administration area in WordPress `Plugins > Add`
-2. Look for `WPMobile.App` (use search form)
-3. Click on Install and activate the plugin
-4. Find the settings page through `Settings > WPMobile.App`
-
-= FTP Method =
-1. Upload the complete `wpappninja` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Find the settings page through the `WPMobile.App` menu on the toolbar
-

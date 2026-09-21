@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
  * @since 4.3.1
  */
 
-add_action('template_redirect', 'wpappninja_read_enhanced', PHP_INT_MAX);
+//add_action('template_redirect', 'wpappninja_read_enhanced', PHP_INT_MAX);
 function wpappninja_read_enhanced() {
 	
 	$pageid = isset($_GET['wpappninja_read_enhanced']) ? sanitize_text_field($_GET['wpappninja_read_enhanced']) : 0;
@@ -19,6 +19,8 @@ function wpappninja_read_enhanced() {
 }
 
 function wpappninja_make_it_beautiful($id) {
+
+    return;
 	
 	header("HTTP/1.1 200 OK");
 	header('Content-Type: text/html; charset=utf-8');

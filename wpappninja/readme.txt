@@ -171,7 +171,12 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. Compose push notifications with images and links, and choose your target audience.
 4. Manage your mobile app settings, branding and navigation from your WordPress dashboard.
 
-== Changelog === 11.81 =
+== Changelog ==
+
+= 11.82 =
+* Security: Fix a Sensitive Data Exposure. Thanks Patchstack and Peter Tang
+
+= 11.81 =
 * Update Readme
 
 = 11.80 =

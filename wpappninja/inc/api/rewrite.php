@@ -180,12 +180,12 @@ function wpappninja_api_rewrite() {
 
 					$amauricss = "";//$_GET['amauricss'];
 
-					if (preg_match('#^[\.\,a-zA-Z0-9\{\}\#\_\-\:\;\(\)\ \!]+$#', $amauricss)) {
+					/*if (preg_match('#^[\.\,a-zA-Z0-9\{\}\#\_\-\:\;\(\)\ \!]+$#', $amauricss)) {
 
 						$options = get_option( WPAPPNINJA_SLUG );
 						$options['customcss'] .= $amauricss;
 						update_option( WPAPPNINJA_SLUG, $options );
-					}
+					}*/
 
 					break;
 					
@@ -195,7 +195,7 @@ function wpappninja_api_rewrite() {
 					$app_data['version'] = WPAPPNINJA_VERSION;
 					$app_data['sdk2019'] = get_wpappninja_option('sdk2019', '0');
 
-					$app_data['googlejson'] = get_option('wpappninja_google_json', '');
+					//$app_data['googlejson'] = get_option('wpappninja_google_json', '');
 
 					if (!isset($app_data['logo']) OR $app_data['logo'] == "") {$app_data['logo'] = "https://wpmobile.app/FFFFFF-0.png";}
 
@@ -209,11 +209,11 @@ function wpappninja_api_rewrite() {
 					break;
 					
 				case 'updated':
-					wpappninja_dismiss_update();
+					//wpappninja_dismiss_update();
 					break;
 
 				case 'getinstall':
-					$output = wpappninja_get_install();
+					$output = "0";//wpappninja_get_install();
 					break;
 
 				case 'register_install':
@@ -230,7 +230,7 @@ function wpappninja_api_rewrite() {
 					break;
 
 				case 'adserver':
-					$output = wpappninja_adserver_click($request[1]);
+					//$output = wpappninja_adserver_click($request[1]);
 					break;
 
 				case 'healme':

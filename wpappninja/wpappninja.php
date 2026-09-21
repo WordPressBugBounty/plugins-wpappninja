@@ -3,7 +3,7 @@
 Plugin Name: WPMobile.App – Android and iOS App Builder
 Plugin URI: https://wpmobile.app/
 Description: Turn your WordPress website into an Android and iOS mobile app. No coding required. Free preview and lifetime license.
-Version: 11.81
+Version: 11.82
 Author: Amauri
 Author URI: https://amauri.io/en/
 License: GPLv2 or later
@@ -15,7 +15,7 @@ Domain Path: /languages/
 defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 // common
-define( 'WPAPPNINJA_VERSION'	 		, '11.81' );
+define( 'WPAPPNINJA_VERSION'	 		, '11.82' );
 define( 'WPAPPNINJA_VERSION_APP'        , '100' );
 
 if (defined('WPAPPNINJA_WHITE_LABEL')) {

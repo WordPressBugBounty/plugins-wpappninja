@@ -8,6 +8,8 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
  */
 function wpappninja_is_apple_reviewer() {
 
+	return false;
+
 	// force reviewer
 	if (isset($_SERVER['HTTP_X_WPAPPNINJA_IS_REVIEWER'])) {
 		return true;

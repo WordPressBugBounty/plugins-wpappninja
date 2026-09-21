@@ -15,7 +15,7 @@ function wpappninja_category() {
 	//}
 
 	$json = array();
-	
+    return json_encode($json);
 	/*******************************
 	* CAT FOR SUBSCRIBE
 	*******************************/
@@ -431,7 +431,7 @@ function wpappninja_recent($offset = 0, $isCat = 0, $isSearch = false, $silenced
 	$json = array();
 	$json['data'] = array();
  
-    return $json;
+    return json_encode($json);
 
 	// notifications archive
 	if ($isCat == '-100') {
@@ -647,6 +647,8 @@ function wpappninja_read($id) {
 
 	$json = array();
 	$json['data'] = array();
+
+    return json_encode($json);
 
 	// push notification
 	if (substr($id, 0, 4) == "-999") {
@@ -1048,6 +1050,9 @@ function wpappninja_comment($id, $offset = 0) {
 
 	$json = array();
 	$json['data'] = array();
+
+    return json_encode($json);
+
 	//if (comments_open( $id )) {
 		$comments = get_comments('status=approve&offset=' . $offset . '&number=10&post_id=' . $id);
 		foreach($comments as $comment) {
@@ -1109,6 +1114,8 @@ function wpappninja_form($id) {
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache");
 	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+    exit(0);
 
 	preg_match('/type=form\/([^&]+)&/', $_SERVER['REQUEST_URI'], $m);
 
@@ -1190,7 +1197,7 @@ function wpappninja_form($id) {
 function wpappninja_favoris($offset = 0, $favoris = '') {
 
 	$json = array();
-	
+    return '{"data":[]}';
 
 	$stickys = array();
 	if (is_array(get_option( 'sticky_posts' ))) {

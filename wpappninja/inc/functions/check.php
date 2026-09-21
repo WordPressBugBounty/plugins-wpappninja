@@ -16,7 +16,7 @@ function wpappninja_is_paid() {
 	if (!get_wpappninja_option('ispaid')) {
 		$ispaid = false;
 		if (!get_transient('wpappninjaispaid')) {
-			set_transient('wpappninjaispaid', '1', 60);
+			set_transient('wpappninjaispaid', '1', 600);
 			$response = wp_remote_get( 'https://wpmobile.app/getIsPaid.php?url=' . urlencode(get_bloginfo('url') . '/') );
 			if( is_array($response) ) {
 				if ($response['body'] == '1') {
@@ -135,6 +135,7 @@ function wpappninja_check_icon() {
  * @since 4.1.1
  */
 function wpappninja_get_install($onlyIOS = false) {
+
 	global $wpdb;
 
 	if ($onlyIOS) {
@@ -266,11 +267,11 @@ function wpappninja_alert_pack() {
  * Cancel the payment.
  */
 function wpappninja_cancel_payment() {
-	$options = get_option(WPAPPNINJA_SLUG);
+	/*$options = get_option(WPAPPNINJA_SLUG);
 	$options['ispaid'] = "0";
 	$options['package'] = "";
 	$options['appstore_package'] = "";
-	update_option(WPAPPNINJA_SLUG, $options);
+	update_option(WPAPPNINJA_SLUG, $options);*/
 }
 
 /**

@@ -638,7 +638,8 @@ function wpapp_config() {
 	if (isset($_POST['enablewpapppush'])) {
 		$user_category = "";
 		if (isset($_POST['wpapp_category']) && is_array($_POST['wpapp_category'])) {
-			$user_category = implode(',', $_POST['wpapp_category']);
+            $cleared_wpapp_category = wpmobile_public_push_categories($_POST['wpapp_category']);
+            $user_category = implode(',', $cleared_wpapp_category);
 		}
 		
 		$wpdb->query($wpdb->prepare("UPDATE {$wpdb->prefix}wpappninja_push_perso SET `category` = %s WHERE `id` = %s", $user_category, $user_id));
@@ -970,6 +971,9 @@ function wpmobile_set_cookie_push() {
 
 add_filter('wpmobile_push_id', 'wpmobileapp_add_user_for_push');
 function wpmobileapp_add_user_for_push($array) {
+
+    $array = wpmobile_public_push_categories($array);
+
     if (is_wpappninja()) {
         if (is_user_logged_in()) {
             $current_user = wp_get_current_user();
@@ -980,7 +984,7 @@ function wpmobileapp_add_user_for_push($array) {
 
             if ($current_user->user_email != "") {
                 $array[] = $current_user->user_email;
-                $array[] = '@';
+                $array[] = 'CUSTOMROLE';
 
                 foreach ($current_user->roles as $v => $role) {
                     $array[] = 'role___' . $role;
@@ -1017,7 +1021,7 @@ function wpapp_history() {
 	$like_term[] = '';
 	foreach ($user_category as $c) {
 		$like_prepare .= " OR category LIKE %s";
-		$like_term[] = $c;
+		$like_term[] = $wpdb->esc_like($c);
 	}
 	$like_term[] = 0;
 	$like_term[] = 100;
@@ -1633,7 +1637,7 @@ function wpmobile_count_push() {
 	$like_term[] = '';
 	foreach ($user_category as $c) {
 		$like_prepare .= " OR category LIKE %s";
-		$like_term[] = $c;
+		$like_term[] = $wpdb->esc_like($c);
 	}
 	$like_prepare .= ')';
 	

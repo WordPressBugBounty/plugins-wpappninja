@@ -167,7 +167,8 @@ function wpappninja_push_config() {
 	if (isset($_POST['enablewpapppush'])) {
 		$user_category = "";
 		if (is_array($_POST['wpapp_category'])) {
-			$user_category = implode(',', $_POST['wpapp_category']);
+            $cleared_wpapp_category = wpmobile_public_push_categories($_POST['wpapp_category']);
+			$user_category = implode(',', $cleared_wpapp_category);
 		}
 
 		$wpdb->query($wpdb->prepare("UPDATE {$wpdb->prefix}wpappninja_push_perso SET `category` = %s WHERE `id` = %s", $user_category, $user_id));

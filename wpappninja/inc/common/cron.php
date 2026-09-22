@@ -68,7 +68,7 @@ function wpappninja_cron() {
 		$savedRole = "";
 		if (preg_match('#^role___#', $obj->category)) {
 			$savedRole = preg_replace('#^role___#', '', $obj->category);
-			$obj->category = '@';
+			$obj->category = 'CUSTOMROLE';
 		}
 
 		if ($default == 'all') {

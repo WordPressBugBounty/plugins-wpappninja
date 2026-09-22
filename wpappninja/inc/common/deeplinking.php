@@ -290,6 +290,8 @@ function wpappninja_fix_header() {
 
 				$category_u = $wma_bdd_id->category;
 				$cat_e = explode(',', $category_u);
+
+				$cat_e = wpmobile_public_push_categories($cat_e);
                 
                 $cat_e = array_filter($cat_e , function ($item){
                     return !preg_match('/@/i', $item);
@@ -313,6 +315,8 @@ function wpappninja_fix_header() {
 
                 $category_u = $wma_bdd_id->category;
                 $cat_e = explode(',', $category_u);
+
+	            $cat_e = wpmobile_public_push_categories($cat_e);
                 
                 $cat_e = array_filter($cat_e , function ($item){
                     return !preg_match('/@/i', $item);

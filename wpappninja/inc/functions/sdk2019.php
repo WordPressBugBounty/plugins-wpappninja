@@ -254,7 +254,7 @@ function wpmobile_get_push() {
 	if (is_array($user_category)) {
 		foreach ($user_category as $c) {
 			$like_prepare .= " OR category LIKE %s";
-			$like_term[] = $c;
+			$like_term[] = $wpdb->esc_like($c);
 		}
 	}
 	$like_prepare .= ')';

@@ -173,6 +173,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 11.84 =
+* Security: Harden how mail to push is triggered
+
 = 11.83 =
 * Security: Temporary disable mail to push, need a proper fix
 

@@ -412,6 +412,35 @@ function wpmobileapp_push($title, $message, $image, $link, $lang_2letters = 'all
 }
 
 // NEW MAIL
+function wpmobile_mark_private_email($email) {
+
+	if (!is_array($email)) {
+		return $email;
+	}
+
+	$headers = $email['headers'] ?? array();
+
+	if (!is_array($headers)) {
+		$headers = preg_split('/\r\n|\r|\n/', (string) $headers);
+	}
+
+	$headers[] = 'X-WPMobile-No-Push: 1';
+	$email['headers'] = $headers;
+
+	return $email;
+}
+
+foreach (array(
+	'retrieve_password_notification_email',
+	'wp_new_user_notification_email',
+	'wp_new_user_notification_email_admin',
+	'password_change_email',
+	'email_change_email',
+	'wp_password_change_notification_email'
+) as $hook) {
+	add_filter($hook, 'wpmobile_mark_private_email', PHP_INT_MAX);
+}
+
 //add_filter( 'wp_mail', 'wpmobileapp_send_push_mail', 1 );
 function wpmobile_get_first_url_with_bloginfo_url($content) {
 	$bloginfo_url = get_bloginfo('url');
@@ -424,6 +453,17 @@ function wpmobile_get_first_url_with_bloginfo_url($content) {
 function wpmobileapp_send_push_mail( $args ) {
 
 	if (get_wpappninja_option('wpmobile_auto_mail') == '1') {
+
+		$headers = $args['headers'] ?? '';
+
+		if (is_array($headers)) {
+			$headers = implode("\n", $headers);
+		}
+
+		if (preg_match('/^\s*X-WPMobile-No-Push\s*:/mi', (string) $headers)) {
+			return $args;
+		}
+
 		$emailsto = $args['to'];
 
 		$all_recipients = array();
@@ -1138,4 +1178,22 @@ function wpmobileapp_fc_user_level_upgraded( $xprofile, $new_level, $old_level )
 	$link = '';
 
 	wpmobileapp_fc_push( $user_id, $title, $message, $link );
+}
+
+function wpmobile_public_push_categories($values) {
+
+	$allowed = array_values(array_unique(array_filter(
+		array_map('trim', explode(',', (string) get_wpappninja_option('push_category', ''))),
+		static function ($value) {
+			return $value !== '' && strpbrk($value, '%_@') === false;
+		}
+	)));
+
+	if (!is_array($values)) {
+		return array();
+	}
+
+	$values = array_map('trim', array_filter($values, 'is_string'));
+
+	return array_values(array_intersect($allowed, $values));
 }

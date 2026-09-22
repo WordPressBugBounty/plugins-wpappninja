@@ -200,7 +200,7 @@ function wpappninja_push_config() {
    			<br/>';
 
 		}
-	
+
 		$html .= '</div><br/><input type="submit" style="color:white;background:'.wpappninja_get_hex_color().'" class="button" value="' . __('Save', 'wpappninja') . '" /></form>';
 	}
 

@@ -173,6 +173,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 11.83 =
+* Security: Temporary disable mail to push, need a proper fix
+
 = 11.82 =
 * Security: Fix a Sensitive Data Exposure. Thanks Patchstack and Peter Tang
 

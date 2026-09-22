@@ -412,7 +412,7 @@ function wpmobileapp_push($title, $message, $image, $link, $lang_2letters = 'all
 }
 
 // NEW MAIL
-add_filter( 'wp_mail', 'wpmobileapp_send_push_mail', 1 );
+//add_filter( 'wp_mail', 'wpmobileapp_send_push_mail', 1 );
 function wpmobile_get_first_url_with_bloginfo_url($content) {
 	$bloginfo_url = get_bloginfo('url');
 	$pattern = '/(' . preg_quote($bloginfo_url, '/') . '[^\s"\']+)/i';

@@ -236,7 +236,7 @@ function wpmobile_get_push() {
 	if (isset($user_settings->category)) {
 		$user_category = explode(',', $user_settings->category);
 	}
-	
+
 	$user_category = apply_filters('wpmobile_push_id', $user_category);
 
 	$last_seen = current_time('timestamp');
@@ -258,7 +258,7 @@ function wpmobile_get_push() {
 		}
 	}
 	$like_prepare .= ')';
-	
+
 	$query = $wpdb->get_results($wpdb->prepare("SELECT COUNT(`id`) as nb FROM {$wpdb->prefix}wpappninja_push WHERE (lang = %s OR lang = 'all') AND `send_date` > %d AND `sended` = %s " . $like_prepare . "", $like_term));
 
     $unread = $query[0]->nb;
@@ -297,7 +297,7 @@ function wpmobile_get_push() {
 
             //$html .= '<h3>' . stripslashes($obj->titre) . '</h3>';
             $html .= '<p>' . stripslashes($obj->message) . '</p>';
-    		
+
 
             $link = "";
     		if ($permalink) {

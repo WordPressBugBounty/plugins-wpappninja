@@ -30,8 +30,8 @@ function wpappninja_stats_log($action, $nb = 1, $isIOS = false, $lang = '') {
 	
 	// requete rewrite
 	$request = explode('/', $action);
-	$action = isset($request[0]) ? $request[0] : $action;
-	$value = isset($request[1]) ? $request[1] : "";
+	$action = isset($request[0]) ? sanitize_text_field($request[0]) : sanitize_text_field($action);
+	$value = isset($request[1]) ? sanitize_text_field($request[1]) : "";
 
 	$value = preg_replace('#__sla_sh__#', '/', preg_replace('#__dot__#', ':', $value));
 
@@ -60,7 +60,7 @@ function wpappninja_stats_log($action, $nb = 1, $isIOS = false, $lang = '') {
 	}
 	
 	// exclude useless action
-	$exclude = array('healme', 'apple_403', 'version', 'update', 'adserver', 'cancel', 'published', 'register_install', 'getinstall', 'updated', 'category', 'store', 'unregister', 'register', 'redirection', 'similaires', 'favoris', 'custom', 'cronjob');
+	$exclude = array('search', 'healme', 'apple_403', 'version', 'update', 'adserver', 'cancel', 'published', 'register_install', 'getinstall', 'updated', 'category', 'store', 'unregister', 'register', 'redirection', 'similaires', 'favoris', 'custom', 'cronjob');
 	if (in_array($action, $exclude)) {
 		return;
 	}

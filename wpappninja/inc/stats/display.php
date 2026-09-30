@@ -168,6 +168,9 @@ function wpappninja_show_stats($k, $i, $segment, $limit, $query_nb, $query_nb_di
 						<?php
 						$query	= $wpdb->get_results("SELECT action, value, date as timestamp, platform, country, lang, city FROM {$wpdb->prefix}wpappninja_stats s JOIN {$wpdb->prefix}wpappninja_stats_users u ON u.id = s.user_id WHERE s.action != 'push' AND $segment ORDER BY date DESC LIMIT $limit");
 						foreach($query as $obj) {
+
+                            $obj->action = esc_html($obj->action);
+                            $obj->value = esc_html($obj->value);
 					
 							// platform
 							$platform = strtolower($obj->platform);
@@ -235,7 +238,9 @@ function wpappninja_show_stats($k, $i, $segment, $limit, $query_nb, $query_nb_di
 			<tbody>
 				<?php
 				$query	= $wpdb->get_results("SELECT SUM(nb) as nb, action FROM {$wpdb->prefix}wpappninja_stats s JOIN {$wpdb->prefix}wpappninja_stats_users u ON u.id = s.user_id WHERE $segment AND action != 'read' GROUP BY s.action ORDER BY nb DESC LIMIT $limit");
-				foreach($query as $obj) {					
+				foreach($query as $obj) {
+                    $obj->action = esc_html($obj->action);
+
 					echo '<tr>
 						<td><div class="wpappninja_stats_button" style="background:#' . wpappninja_stats_color($obj->action) . ';border-color:#' . wpappninja_stats_color($obj->action, TRUE) . ';"><span class="dashicons dashicons-' . wpappninja_stats_dashicon($obj->action) . '"></span> ' . wpappninja_stats_human_title($obj->action) . '</div></td> 
 						<td class="wpappninja_stats_nb">' . $obj->nb . '</td>
@@ -264,6 +269,9 @@ function wpappninja_show_stats($k, $i, $segment, $limit, $query_nb, $query_nb_di
 				<?php
 				$query	= $wpdb->get_results("SELECT SUM(nb) as nb, action, value FROM {$wpdb->prefix}wpappninja_stats s JOIN {$wpdb->prefix}wpappninja_stats_users u ON u.id = s.user_id WHERE action = 'push' AND $segment GROUP BY s.action, s.value ORDER BY nb DESC LIMIT $limit");
 				foreach($query as $obj) {
+
+                    $obj->action = esc_html($obj->action);
+                    $obj->value = esc_html($obj->value);
 					
 					// read
 					$post_id	= $wpdb->get_results($wpdb->prepare("SELECT id_post FROM {$wpdb->prefix}wpappninja_push WHERE id = %s", $obj->value));
@@ -356,7 +364,9 @@ function wpappninja_show_stats($k, $i, $segment, $limit, $query_nb, $query_nb_di
 			<tbody>
 				<?php
 				$query	= $wpdb->get_results("SELECT SUM(nb) as nb, action, value FROM {$wpdb->prefix}wpappninja_stats s JOIN {$wpdb->prefix}wpappninja_stats_users u ON u.id = s.user_id WHERE action != 'login' AND action != 'signup' AND action != 'push' AND action != 'install' AND $segment GROUP BY s.action, s.value ORDER BY nb DESC LIMIT $limit");
-				foreach($query as $obj) {					
+				foreach($query as $obj) {
+                    $obj->action = esc_html($obj->action);
+                    $obj->value = esc_html($obj->value);
 					echo '<tr>
 						<td><span style="color:#' . wpappninja_stats_color($obj->action) . ';" class="dashicons dashicons-' . wpappninja_stats_dashicon($obj->action) . '" title="' . $obj->action . '"></span> ' . wpappninja_stats_human($obj->action, $obj->value) . '</td> 
 						<td class="wpappninja_stats_nb">' . $obj->nb . '';if (@round((100/$query_nb[0]->nb) * $obj->nb) > 20) {echo ' 🔥';}echo '</td>

@@ -173,6 +173,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 11.85 =
+* Security: Unauthenticated Stored Cross-Site Scripting
+
 = 11.84 =
 * Security: Harden how mail to push is triggered
 

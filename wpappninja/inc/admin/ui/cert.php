@@ -4,7 +4,9 @@ defined( 'ABSPATH' ) or die( 'Cheatin\' uh?' );
 
 function importFromKeyToOauth() {
 
-    if (!isset($_GET['migratePushTokens']) || get_wpappninja_option('apipush', '') == '') {
+    return;
+
+    /*if (!isset($_GET['migratePushTokens']) || get_wpappninja_option('apipush', '') == '') {
         return;
     }
 
@@ -42,7 +44,7 @@ function importFromKeyToOauth() {
     
     $option = get_option(WPAPPNINJA_SLUG);
 	$option['apipush'] = "";
-    update_option(WPAPPNINJA_SLUG, $option);
+    update_option(WPAPPNINJA_SLUG, $option);*/
 }
 
 /**
@@ -116,7 +118,7 @@ function _wpappninja_display_cert_page() {
      if (isset($_GET['migratePushTokens']) && get_wpappninja_option('apipush', '') != '') { ?>
      <div style="background:#333;color:white;font-family:courier;padding:20px;">
      <?php
-     echo importFromKeyToOauth();
+     //echo importFromKeyToOauth();
      ?>
      </div>
      <?php } ?>

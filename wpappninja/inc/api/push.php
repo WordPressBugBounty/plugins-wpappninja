@@ -357,7 +357,7 @@ function wpappninja_push_register() {
 	}
  
     if (substr($id, 0, 5) != "_IOS_" && get_option('wpmobile_firebase_config', '') != '') {
-        $fields = array(
+        /*$fields = array(
             'to' => '/topics/main',
             'registration_tokens' => array($id)
         );
@@ -368,7 +368,22 @@ function wpappninja_push_register() {
 			'redirection' => 1,
 			'headers' => $headers,
 			'body' => json_encode($fields)
-        ));
+        ));*/
+
+	    if (get_option('wpappninja_google_json', '') != '') {
+
+			    $headers = array(
+				    'Authorization'     => 'Bearer ' . wpmobile_getOauthToken(),
+				    'access_token_auth' => 'true',
+				    'Content-Type'      => 'application/json'
+			    );
+			    $result  = wp_remote_post( 'https://fcm.googleapis.com/v1/projects/' . wpmobile_getAuthConfig() . '/registrations/' . $id . '/topicSubscriptions?topic_name=main', array(
+				    'method'      => 'POST',
+				    'timeout'     => 10,
+				    'redirection' => 1,
+				    'headers'     => $headers
+			    ) );
+	    }
    }
 }
 
@@ -441,7 +456,7 @@ foreach (array(
 	add_filter($hook, 'wpmobile_mark_private_email', PHP_INT_MAX);
 }
 
-//add_filter( 'wp_mail', 'wpmobileapp_send_push_mail', 1 );
+add_filter( 'wp_mail', 'wpmobileapp_send_push_mail', 1 );
 function wpmobile_get_first_url_with_bloginfo_url($content) {
 	$bloginfo_url = get_bloginfo('url');
 	$pattern = '/(' . preg_quote($bloginfo_url, '/') . '[^\s"\']+)/i';

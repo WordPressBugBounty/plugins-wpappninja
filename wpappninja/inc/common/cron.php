@@ -68,7 +68,7 @@ function wpappninja_cron() {
 		$savedRole = "";
 		if (preg_match('#^role___#', $obj->category)) {
 			$savedRole = preg_replace('#^role___#', '', $obj->category);
-			$obj->category = 'CUSTOMROLE';
+			$obj->category = '@';
 		}
 
 		if ($default == 'all') {
@@ -91,10 +91,12 @@ function wpappninja_cron() {
 
 			if ($savedRole != "") {
 
-				$user_data = get_user_by('email', $r->maincategory);
-				foreach ($user_data->roles as $v => $role) {
-					if ($role == $savedRole) {
-						$ids[] = $r->registration_id;
+				$user_data = get_user_by('email', current(array_filter(array_map('trim', explode(',', $r->maincategory)), fn($value) => filter_var($value, FILTER_VALIDATE_EMAIL))));
+				if ($user_data !== false) {
+					foreach ($user_data->roles as $v => $role) {
+						if ($role == $savedRole) {
+							$ids[] = $r->registration_id;
+						}
 					}
 				}
 				

@@ -66,6 +66,8 @@ function get_wpappninja_option( $option, $default = false ) {
 add_filter( 'get_wpappninja_option_wpappninja_main_theme', 'wpappninja_main_theme' );
 function wpappninja_main_theme($value) {
 
+  if (!current_user_can('manage_options')) {return $value;}
+
   if (isset($_GET['wpappninja_my_theme'])) {
 
     $themes = wp_get_themes(array('allowed' => 'site'));

@@ -74,7 +74,10 @@ function wpmobile_retrieve_password($user_login) {
     $title = apply_filters('retrieve_password_title', $title);
     $message = apply_filters('retrieve_password_message', $message, $key, $user_data->user_login, $user_data);
 
-    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $headers = array(
+            'Content-Type: text/html; charset=UTF-8',
+            'X-WPMobile-No-Push: 1',
+    );
 
     wp_mail($user_email, $title, $message, $headers);
 
@@ -1023,6 +1026,12 @@ function wpapp_history() {
 		$like_prepare .= " OR category LIKE %s";
 		$like_term[] = $wpdb->esc_like($c);
 	}
+
+    $specific_id = (isset($_GET['wpappninja_read_push']) ? $_GET['wpappninja_read_push'] : "");
+
+    if ($specific_id != "") {
+        $like_term[] = $specific_id;
+    }
 	$like_term[] = 0;
 	$like_term[] = 100;
 	$like_prepare .= ')';
@@ -1037,8 +1046,14 @@ function wpapp_history() {
 	  <ul class="wpmobile_list_history">';
 
 	$number_push = 0;
-	
-	$query = $wpdb->get_results($wpdb->prepare("SELECT `id`, `id_post`, `titre`, `message`, `image`, `send_date`, `sended`, `log`, `lang` FROM {$wpdb->prefix}wpappninja_push WHERE (lang = %s OR lang = 'all') AND `sended` = %s " . $like_prepare . " ORDER BY `send_date` DESC LIMIT %d,%d", $like_term));
+
+
+
+    if ($specific_id != "") {
+        $query = $wpdb->get_results($wpdb->prepare("SELECT `id`, `id_post`, `titre`, `message`, `image`, `send_date`, `sended`, `log`, `lang` FROM {$wpdb->prefix}wpappninja_push WHERE (lang = %s OR lang = 'all') AND `sended` = %s " . $like_prepare . " AND id = %d ORDER BY `send_date` DESC LIMIT %d,%d", $like_term));
+    }else{
+        $query = $wpdb->get_results($wpdb->prepare("SELECT `id`, `id_post`, `titre`, `message`, `image`, `send_date`, `sended`, `log`, `lang` FROM {$wpdb->prefix}wpappninja_push WHERE (lang = %s OR lang = 'all') AND `sended` = %s " . $like_prepare . " ORDER BY `send_date` DESC LIMIT %d,%d", $like_term));
+    }
 
 	$avant = __('%s ago', 'wpappninja');
 	foreach($query as $obj) {
@@ -1058,7 +1073,7 @@ function wpapp_history() {
 			$html .= '<!-- Timeline item -->';
     		
     		if ($permalink) {
-				$html .= '<a href="' . $permalink . '" style="color:initial">';
+				$html .= '<a href="' . esc_url($permalink) . '" style="color:initial">';
 			}
 
 			if ($obj->send_date > $last_read) {
@@ -1071,15 +1086,15 @@ function wpapp_history() {
 
 		    if ($obj->image != "" && $obj->image != " ") {
 		        $html .= '<div class="item-media">
-		        	<img src="' . $obj->image . '" width="44" />
+		        	<img src="' . esc_url($obj->image) . '" width="44" />
 			    </div>';
 			}
             $html .= '<div class="item-inner">
               <div class="item-title-row">
-                <div class="item-title"><b>' . stripslashes($obj->titre) . '</b></div>
+                <div class="item-title"><b>' . stripslashes(esc_html($obj->titre)) . '</b></div>
               </div>
               <div class="item-subtitle" style="white-space: initial;">
-                ' . stripslashes($obj->message) . '
+                ' . stripslashes(esc_html($obj->message)) . '
                 <br/>
                 <span style="color:gray;font-size:10px;">' . sprintf($avant, human_time_diff( $obj->send_date, current_time('timestamp') )) . '</span>
               </div>

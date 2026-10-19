@@ -173,6 +173,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
+= 11.87 =
+* Security: Broken Access Control (be sure the user have the right to see a notification) Thanks @patchstack @Peter Tang
+* Security: Do not send as push the "retrieve pass by mail" from wpmobile
+
 = 11.86 =
 * Reenable mail to push
 * Fix push to role

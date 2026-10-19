@@ -298,7 +298,9 @@ function wpappninja_get_pos($search, $string, $offset)
  */
 function wpappninja_show_push() {
 
-    global $wpdb;
+	return do_shortcode('[wpapp_history]');
+
+    /*global $wpdb;
     $id = $_GET['wpappninja_read_push'];
 
     $html = '<div class="post main-post">
@@ -317,9 +319,6 @@ function wpappninja_show_push() {
             if (!preg_match('#^http#', $permalink)) {
                 $permalink = get_permalink($obj->id_post);
             }
-            /*if (!preg_match('#^http#', $permalink)) {
-                $permalink = wpappninja_get_home();
-            }*/
 
             if (strlen($obj->image) > 2) {
                 $html .= '<img src="' . $obj->image . '" class="hero" alt="" />';
@@ -340,5 +339,5 @@ function wpappninja_show_push() {
         $html .= '</div>
     </div>';
 
-    return $html;
+    return $html;*/
 }
